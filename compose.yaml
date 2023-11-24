@@ -1,0 +1,30 @@
+services:
+  web:
+    build: .
+    image: 4skl_blog
+    volumes:
+      - data-volume:/data
+      - log-volume:/var/log
+    command: ./start.sh
+    ports:
+      - "80:80"
+
+  db_save:
+    image: 4skl_blog
+    depends_on:
+      - web
+    volumes:
+      - data-volume:/data
+    command: sh -c "cd backend/ && python3 manage.py dumpdata > /data/backend_data.json" app
+  
+  db_load:
+    image: 4skl_blog
+    depends_on:
+      - web
+    volumes:
+      - data-volume:/data
+    command: sh -c "cd backend/ && python3 manage.py loaddata /data/backend_data.json" app
+
+volumes:
+  data-volume:
+  log-volume:
