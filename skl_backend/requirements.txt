@@ -1,3 +1,7 @@
 Django
 djangorestframework
 gunicorn
+Pillow
+django-ckeditor
+tzdata
+django-colorfield

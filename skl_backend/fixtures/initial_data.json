@@ -1,1 +1,42 @@
-[{"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=", "last_login": null, "is_superuser": true, "username": "admin", "first_name": "", "last_name": "", "email": "", "is_staff": true, "is_active": true, "date_joined": "2023-11-24T16:01:57.813Z", "groups": [], "user_permissions": []}}]
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-11-24T16:01:57.813Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "pages.page",
+        "pk": 1,
+        "fields": {
+            "handle": "home",
+            "title": "Home",
+            "content": "<p>Welcome to the home page</p>",
+            "date_created": "2023-11-25T21:39:21.794Z",
+            "date_updated": "2023-11-25T21:39:21.794Z"
+        }
+    },
+    {
+        "model": "pages.page",
+        "pk": 2,
+        "fields": {
+            "handle": "about",
+            "title": "About",
+            "content": "<p>Welcome to the about page</p>",
+            "date_created": "2023-11-25T21:39:38.618Z",
+            "date_updated": "2023-11-25T21:39:38.618Z"
+        }
+    }
+]

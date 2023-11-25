@@ -20,13 +20,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-from django.core.management.utils import get_random_secret_key  
-SECRET_KEY = get_random_secret_key() # This will generate a new secret key every time you run the server
+#from django.core.management.utils import get_random_secret_key  
+#SECRET_KEY = get_random_secret_key() # This will generate a new secret key every time you run the server
+#! temp
+SECRET_KEY = '*)ld_axkz3*y%pnq5@t4*yp49w921mcug4us&q8+f0*&^(d%s#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '4skl.com']
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost"] #? remove localhost when deploying ? or modify reverse proxy ? => learn more abt CORS and CSRF
+
 
 
 # Application definition
@@ -40,10 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
+    'colorfield',
 
-    'homepage',
+    'pages',
     'projects',
-    'cybersec',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +131,25 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = '/var/www/4skl/static/'
+
+# Media files (Images, Videos, etc.)
+# https://docs.djangoproject.com/en/4.0/topics/files/
+MEDIA_URL = 'media/'
+MEDIA_ROOT = '/var/www/4skl/media/'
+
+# Django REST Framework
+# https://www.django-rest-framework.org/
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+# Django CKEditor
+# https://django-ckeditor.readthedocs.io/en/latest/
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

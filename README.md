@@ -1,4 +1,5 @@
-# 4skl's blog
+# 4skl's blog  
+* For now the `main` branch is considered to be `dev` branch, once it'll be stable enough it'll be considered as the `prod` branch. And a `dev` branch will be created.  
 
 ## Deploy
 
