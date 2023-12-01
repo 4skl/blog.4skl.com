@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# Start nginx as nginx user and then switch back to root
-
+# Install base initial data
 if [ -f "/usr/src/app/backend/fixtures/initial_data.json" ]; then
     su -s /bin/sh -c 'cd backend && python3 manage.py loaddata fixtures/initial_data.json' app
 fi

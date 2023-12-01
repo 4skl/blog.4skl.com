@@ -1,46 +1,27 @@
 services:
-  web:
-    build: .
+  prod:
+    build: 
+      context: .
+      dockerfile: Prod
     image: 4skl_blog
     volumes:
       - data-volume:/data
       - log-volume:/var/log
     command: ./start.sh
     ports:
-      - "80:80"
+      - "80:80" # on production server use <random port for nginx proxy>:80
 
-  db_save:
-    image: 4skl_blog
-    depends_on:
-      - web
+  dev:
+    build: 
+      context: .
+      dockerfile: Dev
+    image: dev_4skl_blog
     volumes:
       - data-volume:/data
-    command: sh -c "cd backend/ && python3 manage.py dumpdata > /data/backend_data.json" app
-  
-  db_load:
-    image: 4skl_blog
-    depends_on:
-      - web
-    volumes:
-      - data-volume:/data
-    command: sh -c "cd backend/ && python3 manage.py loaddata /data/backend_data.json" app
-
-  media_save:
-    image: 4skl_blog
-    depends_on:
-      - web
-    volumes:
-      - data-volume:/data
-    command: sh -c "cp -r /var/www/4skl/media/ /data/" app
-  
-  media_load:
-    image: 4skl_blog
-    depends_on:
-      - web
-    volumes:
-      - data-volume:/data
-    command: sh -c "cp -r /data/media/ /var/www/4skl/" app
-
+      - log-volume:/var/log
+    command: ./start.sh
+    ports:
+      - "80:80" # on production server use <random port for nginx proxy>:80
 volumes:
   data-volume:
   log-volume:

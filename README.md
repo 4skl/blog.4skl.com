@@ -4,11 +4,11 @@
 ## Deploy
 
 ```sh
-docker-compose up web --build -d
+docker-compose up --build -d
 ```  
 or
 ```sh
-docker-compose up web -d
+docker-compose up -d
 ```
 
 ## Export db to volume

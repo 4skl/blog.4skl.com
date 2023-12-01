@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from pages.views import PageViewSet
+from projects.views import ProjectViewSet, TagViewSet
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'page', PageViewSet)
+router.register(r'tag', TagViewSet)
+router.register(r'project', ProjectViewSet)
 
 urlpatterns = [
-    path('api/projects/', include('projects.urls')),
-    path('api/pages/', include('pages.urls')),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

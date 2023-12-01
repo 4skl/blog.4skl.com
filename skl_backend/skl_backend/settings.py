@@ -15,23 +15,32 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#! considered as a dev settings file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#from django.core.management.utils import get_random_secret_key  
-#SECRET_KEY = get_random_secret_key() # This will generate a new secret key every time you run the server
-#! temp
-SECRET_KEY = '*)ld_axkz3*y%pnq5@t4*yp49w921mcug4us&q8+f0*&^(d%s#'
+from django.core.management.utils import get_random_secret_key  
+SECRET_KEY = get_random_secret_key() # This will generate a new secret key every time you run the server
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
 ALLOWED_HOSTS = ['localhost', '4skl.com']
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost"] #? remove localhost when deploying ? or modify reverse proxy ? => learn more abt CORS and CSRF
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000"] #? remove localhost when deploying ? or modify reverse proxy ? => learn more abt CORS and CSRF
 
+CORS_ALLOW_ALL_ORIGINS = True # dev
+
+'''prod
+CORS_ALLOWED_ORIGINS = [
+    "https://4skl.com",
+]
+'''
 
 
 # Application definition

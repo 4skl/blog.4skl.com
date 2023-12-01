@@ -1,0 +1,1 @@
+sh -c "cp -r /var/www/4skl/media/ /data/" app

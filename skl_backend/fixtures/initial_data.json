@@ -1,10 +1,36 @@
 [
     {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2023-11-29T17:35:58.801Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "1",
+            "object_repr": "Test Tag",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2023-11-29T17:36:01.718Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Test Project",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
         "model": "auth.user",
         "pk": 1,
         "fields": {
             "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
-            "last_login": null,
+            "last_login": "2023-11-30T00:33:00.988Z",
             "is_superuser": true,
             "username": "admin",
             "first_name": "",
@@ -37,6 +63,34 @@
             "content": "<p>Welcome to the about page</p>",
             "date_created": "2023-11-25T21:39:38.618Z",
             "date_updated": "2023-11-25T21:39:38.618Z"
+        }
+    },
+    {
+        "model": "projects.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Test Tag",
+            "description": "Test description",
+            "color": "#FF0000"
+        }
+    },
+    {
+        "model": "projects.project",
+        "pk": 1,
+        "fields": {
+            "title": "Test Project",
+            "description": "Test Project description",
+            "content": "<h1>Lorem Ipsum</h1>\r\n\r\n<h4>&quot;Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...&quot;</h4>\r\n\r\n<h5>&quot;Il ny a personne qui naime la souffrance pour elle-m&ecirc;me, qui ne la recherche et qui ne la veuille pour elle-m&ecirc;me...&quot;</h5>\r\n\r\n<hr />\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lorem lacus, euismod sed ultrices et, lobortis at lectus. Phasellus dolor ex, sollicitudin ut laoreet vitae, pharetra non turpis. Ut non diam lobortis, lacinia mi in, consectetur libero. Sed ac semper nisl. Nulla gravida turpis nec lacus euismod blandit. Sed est elit, posuere eu purus in, ornare placerat augue. Donec sem ipsum, laoreet eu malesuada ut, condimentum vel ex. Duis maximus nibh eget massa suscipit dictum. Fusce et arcu tempus, bibendum sapien in, dignissim orci. Vestibulum ac justo a lacus varius porta. Nam quis metus non turpis egestas tristique. Morbi accumsan sapien vel nisi luctus dictum. Nulla vitae sollicitudin mauris. Etiam gravida ornare hendrerit.</p>\r\n\r\n<p>Proin placerat vehicula vestibulum. Nam bibendum molestie lectus, at ultricies augue dictum a. Nam porta massa vel imperdiet eleifend. Praesent efficitur imperdiet tellus, tincidunt faucibus quam eleifend at. Ut quis ipsum nec massa vestibulum aliquam vitae quis arcu. Praesent ornare, neque a efficitur venenatis, elit libero pellentesque odio, nec molestie nunc turpis interdum mi. Pellentesque non pharetra quam. Quisque interdum feugiat consectetur. In iaculis placerat arcu, et efficitur diam suscipit at. Nunc mattis imperdiet tincidunt. Fusce eu turpis arcu. Ut risus eros, pulvinar in dui nec, mollis sodales dolor.</p>",
+            "image": "projects/murder-drones-doll-popcorn-480p.gif",
+            "url": "",
+            "git": "",
+            "featured": true,
+            "published": true,
+            "date_created": "2023-11-29T17:36:01.716Z",
+            "date_updated": "2023-11-29T17:36:01.716Z",
+            "tags": [
+                1
+            ]
         }
     }
 ]

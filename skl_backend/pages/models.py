@@ -3,7 +3,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Page(models.Model):
-    handle = models.SlugField(max_length=100)
+    handle = models.SlugField(max_length=100, primary_key=True)
     title = models.CharField(max_length=100)
     content = RichTextUploadingField()
 

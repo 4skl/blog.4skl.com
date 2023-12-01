@@ -1,15 +1,34 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+const title = ref('');
+const content = ref('');
+
+onMounted(async () => {
+  try {
+    const response = await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/page/about/?format=json`);
+    title.value = response.data.title;
+    content.value = response.data.content;
+  } catch (error) {
+    console.error(error);
+  }
+});
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>{{ title }}</h1>
+    <div v-html="content"></div>
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+h1 {
+  text-align: center;
+}
+
+.about {
+  min-height: 100vh;
 }
 </style>
