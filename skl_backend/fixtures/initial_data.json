@@ -1,31 +1,5 @@
 [
     {
-        "model": "admin.logentry",
-        "pk": 1,
-        "fields": {
-            "action_time": "2023-11-29T17:35:58.801Z",
-            "user": 1,
-            "content_type": 8,
-            "object_id": "1",
-            "object_repr": "Test Tag",
-            "action_flag": 1,
-            "change_message": "[{\"added\": {}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 2,
-        "fields": {
-            "action_time": "2023-11-29T17:36:01.718Z",
-            "user": 1,
-            "content_type": 9,
-            "object_id": "1",
-            "object_repr": "Test Project",
-            "action_flag": 1,
-            "change_message": "[{\"added\": {}}]"
-        }
-    },
-    {
         "model": "auth.user",
         "pk": 1,
         "fields": {
@@ -45,24 +19,22 @@
     },
     {
         "model": "pages.page",
-        "pk": 1,
+        "pk": "about",
         "fields": {
-            "handle": "home",
-            "title": "Home",
-            "content": "<p>Welcome to the home page</p>",
-            "date_created": "2023-11-25T21:39:21.794Z",
-            "date_updated": "2023-11-25T21:39:21.794Z"
-        }
-    },
-    {
-        "model": "pages.page",
-        "pk": 2,
-        "fields": {
-            "handle": "about",
             "title": "About",
             "content": "<p>Welcome to the about page</p>",
             "date_created": "2023-11-25T21:39:38.618Z",
             "date_updated": "2023-11-25T21:39:38.618Z"
+        }
+    },
+    {
+        "model": "pages.page",
+        "pk": "home",
+        "fields": {
+            "title": "Home",
+            "content": "<p>Welcome to the home page</p>",
+            "date_created": "2023-11-25T21:39:21.794Z",
+            "date_updated": "2023-11-25T21:39:21.794Z"
         }
     },
     {
@@ -76,7 +48,7 @@
     },
     {
         "model": "projects.project",
-        "pk": 1,
+        "pk": "test-project",
         "fields": {
             "title": "Test Project",
             "description": "Test Project description",

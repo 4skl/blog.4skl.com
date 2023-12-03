@@ -32,21 +32,23 @@ RUN mkdir -p /var/www/4skl/static/ /var/www/4skl/media/
 RUN chown -R app:app /var/www/4skl/
 RUN chmod -R 750 /var/www/4skl/
 
+# Ensure gunicorn is in the PATH
+ENV PATH="/home/app/.local/bin:${PATH}"
+
 # Create the folder for the backend
+USER app
 WORKDIR /usr/src/app/backend/
-COPY skl_backend/ .
+COPY --chown=app:app skl_backend/ .
 RUN pip3 install -r requirements.txt
 RUN python3 manage.py migrate
 RUN python3 manage.py collectstatic --noinput
-RUN chown -R app:app /usr/src/app/backend/
 
 # Log files
 USER root
 RUN mkdir -p /var/log/gunicorn/ && touch /var/log/gunicorn/access.log /var/log/gunicorn/access.log  && chown -R app /var/log/gunicorn/
 RUN mkdir -p /data/media/
 RUN chown -R app:app /data/
-COPY ./media/ /var/www/4skl/
-
+COPY ./media/ /var/www/4skl/media/
 
 
 WORKDIR /usr/src/app/

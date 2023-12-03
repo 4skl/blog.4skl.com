@@ -16,4 +16,4 @@ fail2ban et req-limit
 
 https://docs.gunicorn.org/en/latest/deploy.html
 
-create a setting dev and prod for django
+modify django settings.py as prod

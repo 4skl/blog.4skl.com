@@ -22,8 +22,8 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'page', PageViewSet)
-router.register(r'tag', TagViewSet)
-router.register(r'project', ProjectViewSet)
+router.register(r'tags', TagViewSet)
+router.register(r'projects', ProjectViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
