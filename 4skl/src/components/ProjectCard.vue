@@ -23,4 +23,8 @@ defineProps<{
   grid-template-columns: 1fr;
 }
 
+.project-card > img {
+  
+}
+
 </style>

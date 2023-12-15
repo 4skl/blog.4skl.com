@@ -17,3 +17,5 @@ fail2ban et req-limit
 https://docs.gunicorn.org/en/latest/deploy.html
 
 modify django settings.py as prod
+
+add 0auth

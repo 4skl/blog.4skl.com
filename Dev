@@ -21,10 +21,11 @@ RUN adduser nginx app
 # Add app to the nginx group
 RUN adduser nginx app
 
-# Create the folder for the backend
+# Install requirements for the backend
 RUN apk add --no-cache python3
 RUN apk add --no-cache py3-pip
-RUN pip3 install --upgrade pip
+RUN apk add --no-cache py3-virtualenv
+
 
 # Create the static files directory and set permissions
 USER root
@@ -39,9 +40,12 @@ ENV PATH="/home/app/.local/bin:${PATH}"
 USER app
 WORKDIR /usr/src/app/backend/
 COPY --chown=app:app skl_backend/ .
-RUN pip3 install -r requirements.txt
-RUN python3 manage.py migrate
-RUN python3 manage.py collectstatic --noinput
+RUN python3 -m venv venv && \
+    . venv/bin/activate && \
+    pip3 install --upgrade pip && \
+    pip3 install -r requirements.txt && \
+    python3 manage.py migrate && \
+    python3 manage.py collectstatic --noinput
 
 # Log files
 USER root

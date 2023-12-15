@@ -8,3 +8,8 @@ What viewsets to paginate
 Add multi stage builds to dockerfile
 Tag model, foreign key as name ? (more data in foreign key, but less queries to get only the name)
 Keep url field in project list serializer ?
+
+
+## TODO
+- [ ] Add nginx to the docker-compose stack (devcontainer ? instead of the dev infinite sleep loop and to serve static files)
+- [ ] Copy and improve stack for production (with nginx, gunicorn, postgresql, etc.) and add different dockerfiles based on the dev environment and compose, just with different settings, configuraions, entrypoints, etc.

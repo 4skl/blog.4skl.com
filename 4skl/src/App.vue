@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -12,7 +13,6 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-    <img alt="4skl logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
   </header>
 
   <RouterView />
@@ -22,11 +22,12 @@ import HelloWorld from './components/HelloWorld.vue'
 header {
   line-height: 1.5;
   max-height: 100vh;
+  margin-bottom: 2rem;
 }
 
 .logo {
   display: block;
-  margin: 2rem auto 2rem;
+  margin: 0 auto 2rem;
 }
 
 nav {
