@@ -46,7 +46,7 @@ onMounted(async () => {
 <template>
   <div class="projects">
     <div v-if="projects.length === 0">No projects</div>
-    <ProjectCard v-for="project in projects" :key="project.handle" :project="project" />
+    <ProjectCard v-for="project in projects" :key="project.handle" :project="project" class="project-card-container" />
   </div>
 </template>
 
@@ -56,5 +56,9 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.project-card-container {
+  margin-bottom: 1em;
 }
 </style>

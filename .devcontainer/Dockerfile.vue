@@ -4,9 +4,6 @@ FROM node:14-alpine
 # Set environment variables
 ENV NODE_ENV development
 
-# Use polling as it's run in wsl2
-ENV USE_POLLING=true
-
 # Set work directory
 WORKDIR /usr/src/4skl.com/4skl
 

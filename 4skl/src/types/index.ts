@@ -13,7 +13,7 @@ export interface Project {
     image: string;
     url: string;
     git: string;
-    tags: Tag;
+    tags: Tag[] | number[];
     featured: boolean;
     date_created: Date;
     date_updated: Date;
