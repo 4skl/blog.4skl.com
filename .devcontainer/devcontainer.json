@@ -1,10 +1,29 @@
 {
 	"name": "4skl.com Dev Container",
 	"dockerComposeFile": ["docker-compose.yml"],
-	"service": "dev",
-	"workspaceFolder": "/usr/src/app",
+	"service": "vue",
+	"workspaceFolder": "/usr/src/4skl.com",
 	"forwardPorts": [
-        8000, // Django
-        3000  // Vue.js/Vite
-    ]
+        //8000, // Django
+        //3000,  // Vue.js/Vite
+		80 // Nginx
+		// todo vite hmr
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"GitHub.copilot-chat",
+				"GitHub.copilot",
+				"ecmel.vscode-html-css",
+				"jock.svg",
+				// for later "WakaTime.vscode-wakatime",
+				"Vue.volar",
+				"Vue.vscode-typescript-vue-plugin",
+				"ms-python.python",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"aaron-bond.better-comments"
+			]
+		}
+	}
 }

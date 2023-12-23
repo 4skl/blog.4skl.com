@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
-import { Project } from '@/types';
+import type { Project } from '@/types';
 import TagItem from '@/components/TagItem.vue';
 defineProps<{
   project: Project;
@@ -14,6 +14,7 @@ defineProps<{
         <p>{{ project.description }}</p>
         <!-- Todo featured, ? date created, date updated, url, git ? -->
         <TagItem v-for="tag in project.tags" :key="tag.id" :tag="tag" />
+        <p>hellp</p>
   </div>
 </template>
 

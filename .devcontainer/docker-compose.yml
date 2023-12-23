@@ -1,27 +1,38 @@
-version: '3'
+version: '3.8'
 services:
   django:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile.django
     volumes:
-      - ../skl_backend:/usr/src/app/skl_backend
-    ports:
-      - 8000:8000
+      - ../skl_backend:/usr/src/4skl.com/skl_backend
+      - ../media:/usr/src/4skl.com/media
+  
   vue:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile.vue
     volumes:
-      - ../4skl:/usr/src/app/4skl
-    ports:
-      - 3000:3000
+      - ../4skl/src:/usr/src/4skl.com/4skl/src
+      - ../4skl/public:/usr/src/4skl.com/4skl/public
+      - ../4skl/vite.config.ts:/usr/src/4skl.com/4skl/vite.config.ts
+      - ../4skl/tsconfig.json:/usr/src/4skl.com/4skl/tsconfig.json
+      - ../4skl/tsconfig.app.json:/usr/src/4skl.com/4skl/tsconfig.app.json
+      - ../4skl/tsconfig.node.json:/usr/src/4skl.com/4skl/tsconfig.node.json
+      - ../4skl/.env.development:/usr/src/4skl.com/4skl/.env.development
+      - ../4skl/env.d.ts:/usr/src/4skl.com/4skl/env.d.ts
+      - ../4skl/index.html:/usr/src/4skl.com/4skl/index.html
+  
   dev:
-    image: alpine
-    command: ["sh", "-c", "while true; do sleep 86400; done"]
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile.nginx
     volumes:
-      - ../skl_backend:/usr/src/app/skl_backend
-      - ../4skl:/usr/src/app/4skl
+      - ../skl_backend:/usr/src/4skl.com/skl_backend
+      - ../4skl:/usr/src/4skl.com/4skl
+      - ../media:/usr/src/4skl.com/media
+    ports:
+      - 80:80
     depends_on:
       - django
       - vue

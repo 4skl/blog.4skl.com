@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tag } from '@/types';
+import type { Tag } from '@/types';
 defineProps<{
   tag: Tag;
 }>()
@@ -18,5 +18,6 @@ defineProps<{
   font-size: 0.8rem;
   font-weight: 500;
   margin-right: 0.5rem;
+  width: fit-content;
 }
 </style>

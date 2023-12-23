@@ -27,12 +27,9 @@ SECRET_KEY = get_random_secret_key() # This will generate a new secret key every
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-USE_X_FORWARDED_HOST = True
-USE_X_FORWARDED_PORT = True
+ALLOWED_HOSTS = ['localhost']
 
-ALLOWED_HOSTS = ['localhost', '4skl.com']
-
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8000"] #? remove localhost when deploying ? or modify reverse proxy ? => learn more abt CORS and CSRF
+CSRF_TRUSTED_ORIGINS = ["http://localhost"] #? remove localhost when deploying ? or modify reverse proxy ? => learn more abt CORS and CSRF
 
 CORS_ALLOW_ALL_ORIGINS = True # dev
 
@@ -103,7 +100,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -144,7 +140,7 @@ STATIC_ROOT = '/var/www/4skl/static/'
 # Media files (Images, Videos, etc.)
 # https://docs.djangoproject.com/en/4.0/topics/files/
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/var/www/4skl/media/'
+MEDIA_ROOT = '/usr/src/app/media'
 
 # Django REST Framework
 # https://www.django-rest-framework.org/
@@ -164,9 +160,3 @@ CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-try:
-    from local_settings import *
-except ImportError:
-    pass

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import { Project } from '@/types'
+import type { Project } from '@/types'
 import TagItem from '@/components/TagItem.vue'
 defineProps<{
   project: Project;

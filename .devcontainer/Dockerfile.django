@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9
+FROM python:3.9-alpine
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -10,7 +10,7 @@ WORKDIR /usr/src/app/skl_backend
 
 # Install system dependencies
 # To build psycopg2 when PostgreSQL is needed (psychpg2 package) and build-essential is needed for the gcc compiler for some python packages requiring compilation
-RUN apt-get update && apt-get install -y build-essential libpq-dev
+RUN apk update && apk add --no-cache build-base postgresql-dev
 
 # Copy project
 COPY ../skl_backend/ .
@@ -22,5 +22,9 @@ RUN pip install -r requirements.txt
 # Expose the Django development server port
 EXPOSE 8000
 
+# Install fixtures and migrate
+RUN ["python", "manage.py", "migrate", "--settings=skl_backend.settings_dev"]
+RUN ["python", "manage.py", "loaddata", "fixtures/initial_data.json", "--settings=skl_backend.settings_dev"]
+
 # Run the Django development server
-CMD ["python", "manage.py", "runserver", "--settings=settings_dev", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "--settings=skl_backend.settings_dev", "0.0.0.0:8000"]
