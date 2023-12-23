@@ -20,7 +20,7 @@ onMounted(async () => {
   <div class="home">
     <h1>{{ title }}</h1>
     <div v-html="content"></div>
-    <p>tes</p>
+    <p>testu</p>
   </div>
 </template>
 
