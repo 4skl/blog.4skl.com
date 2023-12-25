@@ -15,8 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#! considered as a dev settings file
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -30,12 +28,13 @@ DEBUG = False
 USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 
-ALLOWED_HOSTS = ['localhost', '4skl.com']
+ALLOWED_HOSTS = ['localhost', '4skl.com', 'www.4skl.com']
 
-CSRF_TRUSTED_ORIGINS = ["https://4skl.com"]
+CSRF_TRUSTED_ORIGINS = ["https://4skl.com", "https://www.4skl.com"]
 
 CORS_ALLOWED_ORIGINS = [
     "https://4skl.com",
+    "https://www.4skl.com",
 ]
 
 
