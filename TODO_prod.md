@@ -23,3 +23,6 @@ add 0auth
 add https
 docker exec -it 4sklcom-prod-1 sh
 docker exec -it 4sklcom-prod-1 certbot --nginx -n -d www.4skl.com --agree-tos --email medi.olivier@hotmail.com --no-eff-email --staging
+
+for debug :
+https://stackoverflow.com/questions/44785585/how-can-i-delete-all-local-docker-images   

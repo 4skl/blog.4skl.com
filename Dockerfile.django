@@ -30,4 +30,4 @@ RUN ["python", "manage.py", "loaddata", "fixtures/initial_data.json"]
 RUN ["python", "manage.py", "collectstatic", "--noinput"]
 
 # Run the Gunicorn server
-CMD ["gunicorn", "skl_backend.wsgi:application", "--bind", "0.0.0.0:8000", "--log-level=debug"]
+CMD ["gunicorn", "skl_backend.wsgi", "--bind", "0.0.0.0:8000", "--log-level=debug"]
