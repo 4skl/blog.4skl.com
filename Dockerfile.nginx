@@ -27,5 +27,5 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 # Set up Certbot
-# docker exec -it 4sklcom-prod-1 sh
+# docker exec -it <container-id> sh
 # RUN certbot --nginx -d 4skl.com -d www.4skl.com --non-interactive --agree-tos --email $CERTBOT_EMAIL --redirect
