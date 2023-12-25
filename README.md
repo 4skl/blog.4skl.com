@@ -63,7 +63,7 @@ scp -r 4skl.com:./4skl_blog/ ./
 
 - [x] Create django models, urls, serializers and views
 - [x] Setup admin user + create fixture with data
-- [ ] Create frontend using backend REST API
-- [ ] Checkout devcontainer for dev setup
+- [~] Create frontend using backend REST API
+- [x] Checkout devcontainer for dev setup
 - [ ] Setup prod env with docker-compose, and prepare for prod + branch to dev once done
 - [ ] Deploy to VPS and setup nginx + ssl

@@ -2,22 +2,19 @@
 import axios from 'axios';
 import { ref, onMounted, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
-import type { Project, Tag } from '@/types';
+import type { Project, ProjectNumberTags, Tag } from '@/types';
 import TagItem from '@/components/TagItem.vue';
 import { formatDate } from '@/utils/helpers';
+import { projectsNumberTagsToProjects } from '@/utils/projects';
 import hljs from 'highlight.js';
 
 const project = ref();
 const route = useRoute();
 
 onMounted(async () => {
-  const project_build = (await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/projects/${route.params.handle}/?format=json`)).data;
-  const tags_id_list = project_build.tags;
-  const tags: Tag[] = (await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/tags/?format=json&ids=${tags_id_list.join(',')}`)).data;
-  project_build.tags = project_build.tags.map((tag_id: number) => {
-    return tags.find((tag: Tag) => tag.id === tag_id);
-  });
-  project.value = project_build as Project; // typescript is for masochists or psychorigid people xD (or both) jk
+  const project_build: ProjectNumberTags = (await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/projects/${route.params.handle}/?format=json`)).data as ProjectNumberTags;
+  
+  project.value = (await (projectsNumberTagsToProjects([project_build]) as Promise<Project[]>))[0]; // typescript is for masochists or psychorigid people xD (or both) jk
 
   // Highlight code blocks
   nextTick(async () => {
@@ -32,7 +29,7 @@ onMounted(async () => {
     }
 
     document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightElement(block);
+      hljs.highlightElement(block as HTMLElement);
     });
   });
 });

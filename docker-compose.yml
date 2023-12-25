@@ -1,28 +1,25 @@
-version: '3'
+version: '3.8'
 services:
   django:
     build:
-      context: ../skl_backend
+      context: .
       dockerfile: Dockerfile.django
     volumes:
-      - ../skl_backend:/usr/src/app
-    ports:
-      - 8000:8000
-  vue:
-    build:
-      context: ../4skl
-      dockerfile: Dockerfile.vue
-    volumes:
-      - ../4skl:/usr/src/app
-    ports:
-      - 3000:3000
-  dev:
+      - ./skl_backend:/usr/src/4skl.com/skl_backend
+      - ./media:/var/www/4skl.com/media
+      - static_volume:/var/www/4skl.com/static
+  
+  prod:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.nginx
     volumes:
-      - ../skl_backend:/usr/src/app/skl_backend
-      - ../4skl:/usr/src/app/4skl
+      - ./media:/var/www/4skl.com/media
+      - static_volume:/var/www/4skl.com/static
+    ports:
+      - 80:80
     depends_on:
       - django
-      - vue
+
+volumes:
+  static_volume:

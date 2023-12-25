@@ -6,14 +6,14 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /usr/src/app/skl_backend
+WORKDIR /usr/src/4skl.com/skl_backend
 
 # Install system dependencies
 # To build psycopg2 when PostgreSQL is needed (psychpg2 package) and build-essential is needed for the gcc compiler for some python packages requiring compilation
 RUN apk update && apk add --no-cache build-base postgresql-dev
 
 # Copy project
-COPY ../skl_backend/ .
+COPY skl_backend/ .
 
 # Install Python dependencies
 RUN pip install --upgrade pip
@@ -23,8 +23,11 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # Install fixtures and migrate
-RUN ["python", "manage.py", "migrate", "--settings=skl_backend.settings_dev"]
-RUN ["python", "manage.py", "loaddata", "fixtures/initial_data.json", "--settings=skl_backend.settings_dev"]
+RUN ["python", "manage.py", "migrate"]
+RUN ["python", "manage.py", "loaddata", "fixtures/initial_data.json"]
 
-# Run the Django development server
-CMD ["python", "manage.py", "runserver", "--settings=skl_backend.settings_dev", "0.0.0.0:8000"]
+# Collect static files
+RUN ["python", "manage.py", "collectstatic", "--noinput"]
+
+# Run the Gunicorn server
+CMD ["gunicorn", "skl_backend.wsgi:application", "--bind", "0.0.0.0:8000"]
