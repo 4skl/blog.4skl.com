@@ -25,7 +25,7 @@ from django.core.management.utils import get_random_secret_key
 SECRET_KEY = get_random_secret_key() # This will generate a new secret key every time you run the server
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
