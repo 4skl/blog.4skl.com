@@ -43,6 +43,8 @@ CORS_ALLOWED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'loaddumpdata', # Need to be placed before django.contrib.admin to override the index page of the admin site
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,6 +157,21 @@ REST_FRAMEWORK = {
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'extraPlugins': 'codesnippet',
+        'codeSnippet_theme': 'monokai_sublime',
+        'codeSnippet_themeOptions': {
+            'highlight': True,
+            'theme': 'monokai_sublime',
+            'fontSize': '14px',
+            'fontFamily': 'Consolas, monospace',
+        },
+        'allowedContent': True,
+    }
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

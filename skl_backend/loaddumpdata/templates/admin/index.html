@@ -1,0 +1,23 @@
+{% extends "admin/index.html" %}
+
+{% block sidebar %}
+    {{ block.super }}
+
+    <div class="module custom-module">
+        <h3>Custom Actions</h3>
+        <ul class="module">
+            <li>
+                <form action="{% url 'loaddumpdata:dump_data' %}" method="get">
+                    <input type="submit" value="Dump Data">
+                </form>
+            </li>
+            <li>
+                <form action="{% url 'loaddumpdata:load_data' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="submit" value="Load Data">
+                    <input type="file" name="data" required>
+                </form>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

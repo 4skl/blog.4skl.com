@@ -19,7 +19,6 @@ from pages.views import PageViewSet
 from projects.views import ProjectViewSet, TagViewSet
 from rest_framework import routers
 
-
 router = routers.DefaultRouter()
 router.register(r'page', PageViewSet)
 router.register(r'tags', TagViewSet)
@@ -27,6 +26,7 @@ router.register(r'projects', ProjectViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('admin/loaddumpdata/', include('loaddumpdata.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import axios from 'axios';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
 import type { Project, Tag } from '@/types';
 import TagItem from '@/components/TagItem.vue';
 import { formatDate } from '@/utils/helpers';
+import hljs from 'highlight.js';
 
 const project = ref();
 const route = useRoute();
@@ -16,7 +17,24 @@ onMounted(async () => {
   project_build.tags = project_build.tags.map((tag_id: number) => {
     return tags.find((tag: Tag) => tag.id === tag_id);
   });
-  project.value = project_build;
+  project.value = project_build as Project; // typescript is for masochists or psychorigid people xD (or both) jk
+
+  // Highlight code blocks
+  nextTick(async () => {
+    // Check if dark mode is enabled
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Import the appropriate highlight.js style
+    if (isDarkMode) {
+      await import('highlight.js/styles/dark.css');
+    } else {
+      await import('highlight.js/styles/github.css');
+    }
+
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  });
 });
 </script>
 
@@ -43,7 +61,6 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .project-title {

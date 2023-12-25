@@ -46,6 +46,8 @@ CORS_ALLOWED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'loaddumpdata', # Need to be placed before django.contrib.admin to override the index page of the admin site
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
