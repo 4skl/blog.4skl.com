@@ -19,3 +19,6 @@ https://docs.gunicorn.org/en/latest/deploy.html
 modify django settings.py as prod
 
 add 0auth
+
+add https
+docker exec -it <container-id> certbot --nginx -n -d www.4skl.com --agree-tos --email medi.olivier@hotmail.com --no-eff-email --staging
