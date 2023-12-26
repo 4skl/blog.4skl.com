@@ -3,60 +3,35 @@
 
 ## Dev setup  
 
-### Frontend  
-* Install nodejs and npm
-```sh
-cd 4skl
-npm install
-npm run dev
-```
+### Requirements
 
-### Backend  
-* Install python3 and pip
-```sh
-cd 4skl_blog
-python -m venv venv
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver --settings=skl_backend.settings_dev localhost:8000
-```
+- Docker
+- Docker-compose
+- VSCode
+- VSCode Devcontainer extension
+- Other VSCode extensions (see `.devcontainer/devcontainer.json`)  
 
-
-todo docker compose dev setup to test full dev env before prod (django + vuejs + nginx)  
-
+Just open the project in VSCode and it'll ask you to open it in a devcontainer.
 
 ## Deploy
 
 ```sh
-docker-compose up --build -d
+docker-compose up --force-recreate -d
 ```  
 or
 ```sh
 docker-compose up -d
 ```
 
-## Export db to volume
-
-```sh
-docker-compose run --rm db_save
-```
-
-## Load db from volume
-
-```sh
-docker-compose run --rm db_load
-```
-
 ## Utils
 
+todo: add more utils
 ```sh
 docker ps
 
-docker cp <container_id>:/data/ ./4skl_blog/db
+docker cp <prod_container_id>:/var/www/4skl.com/media ./4skl_blog/media
 
-docker cp <container_id>:/var/log/ ./4skl_blog/logs
-
-scp -r 4skl.com:./4skl_blog/ ./
+scp -r ...
 ```
 
 ## TODO

@@ -8,24 +8,32 @@ RUN npm run build --base=/
 # Production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /var/www/4skl.com/dist
+
+# Set up Nginx to serve the site and Certbot to renew the certificate
 # Remove the default Nginx configuration file
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Add our configuration file
 COPY reverse-proxy-prod.conf /etc/nginx/conf.d/
 
-# Install Certbot
-RUN apk add certbot certbot-nginx
-
 # Expose ports
 EXPOSE 80
 EXPOSE 443
 
-# Start Nginx
+RUN nginx -t
+RUN nginx -s reload
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Create a Let's Encrypt certificate with Certbot
+RUN apk add --no-cache certbot certbot-nginx
+# Set up environment variables
+ENV CERTBOT_EMAIL "medi.olivier@hotmail.fr"
 
-# Set up Certbot
-# docker exec -it <container-id> sh
-# RUN certbot --nginx -d 4skl.com -d www.4skl.com --non-interactive --agree-tos --email $CERTBOT_EMAIL --redirect
+# TODO add -d 4skl.com
+RUN certbot --nginx -d www.4skl.com --non-interactive --agree-tos --email $CERTBOT_EMAIL --redirect
+
+# Set up Supervisor to run multiple processes (Nginx and Certbot renew)
+RUN apk add -U supervisor
+
+COPY supervisord.conf /etc/supervisord.conf
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

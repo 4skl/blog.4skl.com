@@ -1,1 +1,0 @@
-sh -c "cd backend/ && python3 manage.py dumpdata > /data/backend_data.json" app
