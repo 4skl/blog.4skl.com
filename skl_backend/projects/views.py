@@ -27,7 +27,7 @@ class TagViewSet(viewsets.ModelViewSet):
 class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     ordering_fields = ['name', 'created']
-    queryset = Project.objects.filter(published=True)
+    queryset = Project.objects.filter(published=True).order_by('-date_created')
     
     def get_serializer_class(self):
         if self.action == 'list':
