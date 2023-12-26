@@ -16,7 +16,7 @@ Just open the project in VSCode and it'll ask you to open it in a devcontainer.
 ## Deploy
 
 ```sh
-docker-compose up --force-recreate -d
+docker-compose up --build --force-recreate -d
 ```  
 or
 ```sh

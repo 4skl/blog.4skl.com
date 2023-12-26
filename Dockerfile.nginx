@@ -9,6 +9,17 @@ RUN npm run build --base=/
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /var/www/4skl.com/dist
 
+# Wait for the django backend to be ready
+# Install netcat
+RUN apk add --no-cache netcat-openbsd
+
+# Add a script that waits for the Django service
+COPY wait-for.sh /wait-for.sh
+RUN chmod +x /wait-for.sh
+
+# Use the script before starting Nginx
+RUN /wait-for.sh django:8000
+
 # Set up Nginx to serve the site and Certbot to renew the certificate
 # Remove the default Nginx configuration file
 RUN rm /etc/nginx/conf.d/default.conf
@@ -30,6 +41,9 @@ ENV CERTBOT_EMAIL "medi.olivier@hotmail.fr"
 
 # TODO add -d 4skl.com
 RUN certbot --nginx -d www.4skl.com --non-interactive --agree-tos --email $CERTBOT_EMAIL --redirect
+
+# Power off nginx
+RUN nginx -s stop
 
 # Set up Supervisor to run multiple processes (Nginx and Certbot renew)
 RUN apk add -U supervisor
