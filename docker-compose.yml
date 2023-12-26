@@ -8,7 +8,11 @@ services:
       - ./skl_backend:/usr/src/4skl.com/skl_backend
       - ./media:/var/www/4skl.com/media
       - static_volume:/var/www/4skl.com/static
-  
+  logging:
+      options:
+        max-size: '100m'
+        max-file: '3'
+
   prod:
     build:
       context: .
@@ -21,6 +25,10 @@ services:
       - 443:443
     depends_on:
       - django
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '3'
 
 volumes:
   static_volume:

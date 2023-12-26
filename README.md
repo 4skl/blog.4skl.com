@@ -31,7 +31,8 @@ docker ps
 
 docker cp <prod_container_id>:/var/www/4skl.com/media ./4skl_blog/media
 
-scp -r ...
+# Copy media from prod to dev
+scp -r :~/4skl.com/media ./media
 ```
 
 ## TODO
