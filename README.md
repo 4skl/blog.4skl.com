@@ -40,8 +40,8 @@ docker exec -it 4sklcom-django-1 python manage.py dumpdata --natural-foreign --n
 # Get fixtures from prod
 scp :~/4skl.com/skl_backend/fixtures/initial_data.json ./skl_backend/fixtures/initial_data.json
 
-# Copy media from prod to dev
-scp -r :~/4skl.com/media ./media
+# Copy media from prod to dev; replace the local media folder with the one from prod
+scp -r :~/4skl.com/media ./
 
 # Reset git to HEAD (remove all changes), used to reset prod after changing media files and copying them to dev with scp for example (note: use django admin, or command to get the fixture accordingly)
 git reset --hard HEAD
@@ -57,6 +57,9 @@ docker exec -it 4sklcom-django-1 python manage.py createsuperuser
 
 # See logs
 docker compose logs -f
+
+# See logs for a specific service
+docker compose logs -f <service_name>
 ```
 
 ## TODO
