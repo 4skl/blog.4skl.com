@@ -27,12 +27,18 @@ docker-compose up -d
 
 todo: add more utils
 ```sh
-docker ps
+# Generate fixtures from prod (note: exlude contenttypes, auth.Permission and sessions.session; we exclude sessions to avoid leaking it in the repository, anyway it's not useful to have it in the fixtures too since the django secret key is changing at each deploy)
+docker exec -it 4sklcom-django-1 python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission -e sessions.session --indent 4 > ./skl_backend/fixtures/initial_data.json
 
-docker cp <prod_container_id>:/var/www/4skl.com/media ./4skl_blog/media
+# Get fixtures from prod
+scp :~/4skl.com/skl_backend/fixtures/initial_data.json ./skl_backend/fixtures/initial_data.json
 
 # Copy media from prod to dev
 scp -r :~/4skl.com/media ./media
+
+# Reset git to HEAD (remove all changes), used to reset prod after changing media files and copying them to dev with scp for example (note: use django admin, or command to get the fixture accordingly)
+git reset --hard HEAD
+
 ```
 
 ## TODO

@@ -16,8 +16,17 @@ class DumpDataView(UserPassesTestMixin, View):
         # Create a StringIO object
         output = io.StringIO()
 
-        # Call the 'dumpdata' command and save the output in the StringIO object
-        call_command('dumpdata', stdout=output)
+        # Call the 'dumpdata' command and save the output in the StringIO object, excuding the contenttypes, auth.Permission and sessions.session tables as being useless there and a potential security issue
+        # The User model is included in the dumpdata output because it is needed to not have to create a new superuser after loading the data
+        # This is still safe cause the password is in a salted and slow hashed form (also the password choosen for the superuser is strong and not used anywhere else)
+        call_command(
+            'dumpdata', 
+            stdout=output, 
+            natural_foreign=True, 
+            natural_primary=True, 
+            exclude=['contenttypes', 'auth.Permission', 'sessions.session'], 
+            indent=4
+        )
 
         # Create a HttpResponse to send the data back as a file download
         response = HttpResponse(output.getvalue(), content_type='application/json')
