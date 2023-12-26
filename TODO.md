@@ -11,5 +11,10 @@ Keep url field in project list serializer ?
 
 
 ## TODO
-- [ ] Add nginx to the docker-compose stack (devcontainer ? instead of the dev infinite sleep loop and to serve static files)
-- [ ] Copy and improve stack for production (with nginx, gunicorn, postgresql, etc.) and add different dockerfiles based on the dev environment and compose, just with different settings, configuraions, entrypoints, etc.
+- [x] Add nginx to the docker-compose stack (devcontainer ? instead of the dev infinite sleep loop and to serve static files)
+- [x] Copy and improve stack for production (with nginx, gunicorn, postgresql, etc.) and add different dockerfiles based on the dev environment and compose, just with different settings, configuraions, entrypoints, etc.
+- [x] Add a docker-compose for development (with hot reload, etc.)
+- [x] Add a docker-compose for production (with nginx, gunicorn, etc.)
+- [ ] Add a docker-compose for testing (with pytest, fake https and domain, etc.) ?
+- [ ] Add django image resizing (with pillow) ? To improve performance and perhaps caching in nginx ? (Improve LCP and so Performance score)
+- [ ] Add robots.txt and Document meta description (Improve SEO score)
