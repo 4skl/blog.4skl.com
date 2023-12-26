@@ -43,7 +43,7 @@ onMounted(async () => {
       <div class="center-content">
         <div class="tags"><TagItem v-for="tag in project.tags" :key="tag.id" :tag="tag" /></div>
         <div><span class="date-created">{{ formatDate(project.date_created) }}</span> - <span class="date-updated">{{ formatDate(project.date_updated) }}</span></div>
-      <img class="project-image" v-if="project.image" :src="project.image" :alt="project.title" />
+      <img class="project-image" v-if="project.image" :src="project.image" :alt="project.title" loading="lazy"/>
       </div>
       <!-- Todo featured, ? date created, date updated, url, git ? -->
       <div class="project-content" v-html="project.content"></div>
