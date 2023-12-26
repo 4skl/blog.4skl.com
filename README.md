@@ -16,6 +16,13 @@ Just open the project in VSCode and it'll ask you to open it in a devcontainer.
 ## Deploy
 
 ```sh
+# Reset git to HEAD ! make sure you don't have any changes you want to keep, see utils section
+git reset --hard HEAD
+
+# Pull latest changes
+git pull
+
+# Build and run
 docker-compose up --build --force-recreate -d
 ```  
 or
@@ -39,6 +46,17 @@ scp -r :~/4skl.com/media ./media
 # Reset git to HEAD (remove all changes), used to reset prod after changing media files and copying them to dev with scp for example (note: use django admin, or command to get the fixture accordingly)
 git reset --hard HEAD
 
+# Pull latest changes
+git pull
+
+# Build and run
+docker compose up --build --force-recreate -d
+
+# Create superuser
+docker exec -it 4sklcom-django-1 python manage.py createsuperuser
+
+# See logs
+docker compose logs -f
 ```
 
 ## TODO

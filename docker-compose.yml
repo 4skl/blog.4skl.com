@@ -8,12 +8,14 @@ services:
       - ./skl_backend:/usr/src/4skl.com/skl_backend
       - ./media:/var/www/4skl.com/media
       - static_volume:/var/www/4skl.com/static
-  logging:
-      options:
-        max-size: '100m'
-        max-file: '3'
+    logging:
+        options:
+          max-size: '100m'
+          max-file: '3'
 
   prod:
+    depends_on:
+      - django
     build:
       context: .
       dockerfile: Dockerfile.nginx
@@ -23,8 +25,6 @@ services:
     ports:
       - 80:80
       - 443:443
-    depends_on:
-      - django
     logging:
       options:
         max-size: '100m'
