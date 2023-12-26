@@ -30,12 +30,6 @@ export async function projectsNumberTagsToProjects(projects_number_tags: Project
         date_created: project_number_tags.date_created,
         date_updated: project_number_tags.date_updated,
       };
-      project_number_tags.tags.forEach((tag_id) => {
-        const tag = tags.find((tag) => tag.id === tag_id);
-        if (tag) {
-          project.tags.push(tag);
-        }
-      });
       projects.push(project);
     });
   
