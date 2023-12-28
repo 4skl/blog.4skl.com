@@ -22,9 +22,11 @@ RUN pip install -r requirements.txt
 # Expose the Django development server port
 EXPOSE 8000
 
-# Install fixtures and migrate
-RUN ["python", "manage.py", "migrate", "--settings=skl_backend.settings_dev"]
-RUN ["python", "manage.py", "loaddata", "fixtures/initial_data.json", "--settings=skl_backend.settings_dev"]
+# Add a script that migrate django, install fixtures and starts development server
+COPY .devcontainer/startup-django-dev.sh django-start.sh
+RUN chmod +x /django-start.sh
 
-# Run the Django development server
-CMD ["python", "manage.py", "runserver", "--settings=skl_backend.settings_dev", "0.0.0.0:8000"]
+# TODO To wait for the database to be ready before starting Django
+
+# migrate, install fixtures and starts Gunicorn
+CMD ["./django-start.sh"]

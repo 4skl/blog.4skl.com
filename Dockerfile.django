@@ -19,15 +19,17 @@ COPY skl_backend/ .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Expose the Django development server port
-EXPOSE 8000
-
-# Install fixtures and migrate
-RUN ["python", "manage.py", "migrate"]
-RUN ["python", "manage.py", "loaddata", "fixtures/initial_data.json"]
-
 # Collect static files
 RUN ["python", "manage.py", "collectstatic", "--noinput"]
 
-# Run the Gunicorn server
-CMD ["gunicorn", "skl_backend.wsgi", "--bind", "0.0.0.0:8000", "--log-level=debug"]
+# Expose the gunicorn port for the nginx reverse proxy
+EXPOSE 8000
+
+# Add a script that migrate django, install fixtures and starts Gunicorn
+COPY django-start.sh /django-start.sh
+RUN chmod +x /django-start.sh
+
+# TODO To wait for the database to be ready before starting Django
+
+# migrate, install fixtures and starts Gunicorn
+CMD ["./django-start.sh"]

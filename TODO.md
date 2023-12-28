@@ -19,4 +19,4 @@ Keep url field in project list serializer ?
 - [ ] Add django image resizing (with pillow) ? To improve performance and perhaps caching in nginx ? (Improve LCP and so Performance score)
 - [ ] Add robots.txt and Document meta description (Improve SEO score)
 - [ ] Add a sitemap.xml (Improve SEO score)
-- [ ] Move nginx certificate out of the container (to avoid recreating each time the container is recreated) + move nginx server port to another port to avoid conflicts with the outside nginx (and so the outside nginx can proxy_pass to the inside nginx); but still an open question, it seems better to just avoid making dev updates on prod too frequently...
+- [ ] Move nginx certificate out of the container (to avoid recreating each time the container is recreated) + move nginx server port to another port to avoid conflicts with the outside nginx (and so the outside nginx can proxy_pass to the inside nginx); but still an open question, it seems better to just avoid making dev updates on prod too frequently... => Add a script for certbot creation and volume for certbot data (to avoid recreating each time the container is recreated)

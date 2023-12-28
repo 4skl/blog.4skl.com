@@ -22,6 +22,7 @@ services:
     volumes:
       - ./media:/var/www/4skl.com/media
       - static_volume:/var/www/4skl.com/static
+      - certbot_data:/etc/letsencrypt
     ports:
       - 80:80
       - 443:443
@@ -32,3 +33,4 @@ services:
 
 volumes:
   static_volume:
+  certbot_data:

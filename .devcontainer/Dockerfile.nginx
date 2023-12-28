@@ -5,7 +5,7 @@ FROM nginx:alpine
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Add our configuration file
-COPY reverse-proxy-dev.conf /etc/nginx/conf.d/
+COPY .devcontainer/reverse-proxy-dev.conf /etc/nginx/conf.d/
 
 # Expose port 80
 EXPOSE 80
