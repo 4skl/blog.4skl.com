@@ -23,10 +23,10 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # Add a script that migrate django, install fixtures and starts development server
-COPY .devcontainer/startup-django-dev.sh django-start.sh
-RUN chmod +x /django-start.sh
+COPY .devcontainer/startup-django-dev.sh /usr/local/bin/django-start.sh
+RUN chmod +x /usr/local/bin/django-start.sh
 
 # TODO To wait for the database to be ready before starting Django
 
 # migrate, install fixtures and starts Gunicorn
-CMD ["./django-start.sh"]
+CMD ["django-start.sh"]
