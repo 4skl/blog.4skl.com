@@ -32,4 +32,4 @@ RUN chmod +x startup-django.sh
 # TODO To wait for the database to be ready before starting Django
 
 # migrate, install fixtures and starts Gunicorn
-CMD ["./startup-django.sh"]
+CMD ["sh", "./startup-django.sh"]
