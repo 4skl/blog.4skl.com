@@ -35,11 +35,11 @@ RUN apk add --no-cache certbot certbot-nginx
 # * Certbot will only renew the certificate if it's less than 30 days from expiring
 # * Certbot will only create a certificate if it doesn't exist
 # * Certbot will only create a certificate if the domain name is valid and the DNS is pointing to the server
-COPY ./certificate-setup.sh .
+COPY certificate-setup.sh .
 RUN chmod +x ./certificate-setup.sh
 
 # Copy the startup script (certificate-setup.sh, then runs the Supervisor daemon to run Nginx and Certbot renew)
-COPY ./startup-nginx.sh .
+COPY startup-nginx.sh .
 RUN chmod +x ./startup-nginx.sh
 
 # Wait for the django backend to be ready
@@ -47,7 +47,7 @@ RUN chmod +x ./startup-nginx.sh
 RUN apk add --no-cache netcat-openbsd
 
 # Add a script that waits for the Django service
-COPY ./wait-for.sh .
+COPY wait-for.sh .
 RUN chmod +x ./wait-for.sh
 
 # Wait for the Django service to be ready before starting Nginx and Certbot and run the Supervisor daemon
