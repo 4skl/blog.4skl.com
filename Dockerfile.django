@@ -26,10 +26,10 @@ RUN ["python", "manage.py", "collectstatic", "--noinput"]
 EXPOSE 8000
 
 # Add a script that migrate django, install fixtures and starts Gunicorn
-COPY ./django-start.sh /usr/local/bin/django-start.sh
-RUN chmod +x /usr/local/bin/django-start.sh
+COPY ./startup-django.sh /usr/local/bin/startup-django.sh
+RUN chmod +x /usr/local/bin/startup-django.sh
 
 # TODO To wait for the database to be ready before starting Django
 
 # migrate, install fixtures and starts Gunicorn
-CMD ["django-start.sh"]
+CMD ["startup-django.sh"]
