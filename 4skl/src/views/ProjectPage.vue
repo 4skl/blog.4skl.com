@@ -116,6 +116,7 @@ onMounted(async () => {
   overflow: hidden;
 }
 .project-content {
+  margin: auto;
   margin-top: 2em;
   width: 90%;
   max-width: 800px; /* Added a max-width to prevent the content from becoming too wide on large screens */
