@@ -34,6 +34,10 @@ docker-compose up -d
 
 todo: add more utils
 ```sh
+
+# Generate fixtures from dev : use the loaddumpdata app or the command below in exec in the django devcontainer (note: exlude contenttypes, auth.Permission and sessions.session; we exclude sessions to avoid leaking it in the repository, anyway it's not useful to have it in the fixtures too since the django secret key is changing at each deploy)
+python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission -e sessions.session --indent 4 > ./fixtures/initial_data.json
+
 # Generate fixtures from prod (note: exlude contenttypes, auth.Permission and sessions.session; we exclude sessions to avoid leaking it in the repository, anyway it's not useful to have it in the fixtures too since the django secret key is changing at each deploy)
 docker exec -it 4sklcom-django-1 python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission -e sessions.session --indent 4 > ./skl_backend/fixtures/initial_data.json
 

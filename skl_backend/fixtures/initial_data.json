@@ -1,321 +1,411 @@
 [
-    {
-        "model": "auth.user",
-        "fields": {
-            "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
-            "last_login": "2023-12-30T23:16:52.610Z",
-            "is_superuser": true,
-            "username": "admin",
-            "first_name": "",
-            "last_name": "",
-            "email": "",
-            "is_staff": true,
-            "is_active": true,
-            "date_joined": "2023-11-24T16:01:57.813Z",
-            "groups": [],
-            "user_permissions": []
-        }
-    },
-    {
-        "model": "pages.page",
-        "pk": "about",
-        "fields": {
-            "title": "About",
-            "content": "<p>Welcome to the about page</p>",
-            "date_created": "2023-11-25T21:39:38.618Z",
-            "date_updated": "2023-11-25T21:39:38.618Z"
-        }
-    },
-    {
-        "model": "pages.page",
-        "pk": "home",
-        "fields": {
-            "title": "Home",
-            "content": "<p>Welcome to the home page</p>",
-            "date_created": "2023-11-25T21:39:21.794Z",
-            "date_updated": "2023-11-25T21:39:21.794Z"
-        }
-    },
-    {
-        "model": "projects.tag",
-        "pk": 1,
-        "fields": {
-            "name": "Test Tag",
-            "description": "Test description",
-            "color": "#FF0000"
-        }
-    },
-    {
-        "model": "projects.tag",
-        "pk": 2,
-        "fields": {
-            "name": "Android",
-            "description": "Android related content",
-            "color": "#3DDC84"
-        }
-    },
-    {
-        "model": "projects.tag",
-        "pk": 3,
-        "fields": {
-            "name": "Web",
-            "description": "Web related content",
-            "color": "#00B8FF"
-        }
-    },
-    {
-        "model": "projects.project",
-        "pk": "posbary",
-        "fields": {
-            "title": "Posbary",
-            "description": "Making a small Website and an Android app for finding the nearest point to a list of points.",
-            "content": "<p>The idea was simple : finding the best point in a map for n peoples to meet, called the barycenter there.<br />\r\nI first made the mean of the sum of latitudes and longitudes, but that was obviously not the good solution (the distance between 2 longitudes depends on the latitude,...). So later I used the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Great-circle_distance\" rel=\"noopener\" target=\"_blank\" title=\"Great Circle distance wikipedia page\">Great Circle distance</a>&nbsp;(I could use the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Vincenty%27s_formulae\" rel=\"noopener\" target=\"_blank\" title=\"Vincenty's formula wikipedia page\">Vincenty&#39;s formula</a>&nbsp;but that&#39;s a little bit overkill).<br />\r\nThe mean of the sum of latitudes and longitudes that was enough to use as test for the distance in a small app, so I discovered the google map api platform and usage of the Maps in Android.<br />\r\n<br />\r\n<img alt=\"\" src=\"/media/uploads/2023/12/26/posbary_android.png\" /></p>\r\n\r\n<p>I developped a technique that throw a lot of points in the map, check the best found and then throw a list of point in a smaller area around it (kinda like a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Genetic_algorithm\" title=\"Genetic algorithm wikipedia page\">genetic algorithm</a>, but only the best of each generation is kept (if the &quot;cost&quot; have only one local minimum and is continuous that&#39;s not a problem) and the mutations reduce over time).</p>\r\n\r\n<p>That find the point with the smallest value for the equation of the distance to all the input points.</p>\r\n\r\n<p>Another goal was added, the point should be in the lands.</p>\r\n\r\n<p>I had some difficulties to make a 3 color gradient, having fun results.</p>\r\n\r\n<p><img alt=\"\" src=\"/media/uploads/2023/12/26/posbary_costs_bugs.webp\" /></p>\r\n\r\n<p>But I finally made the program working and made with a little editing to add the map this graphic :</p>\r\n\r\n<p><img alt=\"\" src=\"/media/uploads/2023/12/26/posbary_map_costs.webp\" /></p>\r\n\r\n<ul>\r\n\t<li>From blue to red the cost increasing</li>\r\n\t<li>In green to dark purple the points that search the barycenter in a smaller area at each operation</li>\r\n\t<li>In pink the points in lands searched in an area increasing from the barycenter previously found</li>\r\n</ul>\r\n\r\n<p>To target more devices I also decided to switch to a Website.</p>\r\n\r\n<p><img alt=\"\" src=\"https://www.4skl.com/media/projects/posbary_demo.webp\" /></p>\r\n\r\n<p>Now I work on theses things :</p>\r\n\r\n<ol>\r\n\t<li>Finding a way to reduce lands file size from this&nbsp;<a href=\"https://sedac.ciesin.columbia.edu/data/set/gpw-v4-land-water-area-rev11\" rel=\"noopener\" target=\"_blank\" title=\"Land water area dataset from earthdata\">land and water area dataset</a>&nbsp;(actually 4Mo file for ~5km precision is used)</li>\r\n\t<li>Finding the &quot;Travel Barycenter&quot;, the destination that make all people use the less time in car transport to meet, using distance matrix apis (Actually working, but improvements are needed to reduce and optimize api calls, and to show all the routes and the times on the map too)</li>\r\n\t<li>Prove and fine tuning the algorithm</li>\r\n\t<li>Use OpenLayers to avoid usage of proprietary google apis</li>\r\n\t<li>Make travels easily sharable and time aware</li>\r\n</ol>",
-            "image": "projects/posbary_demo.webp",
-            "url": "",
-            "git": "",
-            "featured": true,
-            "published": true,
-            "date_created": "2023-12-26T15:31:03.264Z",
-            "date_updated": "2023-12-30T23:17:42.123Z",
-            "tags": [
-                2,
-                3
-            ]
-        }
-    },
-    {
-        "model": "projects.project",
-        "pk": "test-project",
-        "fields": {
-            "title": "Test Project",
-            "description": "Test Project description",
-            "content": "<h1>Lorem Ipsum</h1>\r\n\r\n<h4>&quot;Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...&quot;</h4>\r\n\r\n<h5>&quot;Il ny a personne qui naime la souffrance pour elle-m&ecirc;me, qui ne la recherche et qui ne la veuille pour elle-m&ecirc;me...&quot;</h5>\r\n\r\n<hr />\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lorem lacus, euismod sed ultrices et, lobortis at lectus. Phasellus dolor ex, sollicitudin ut laoreet vitae, pharetra non turpis. Ut non diam lobortis, lacinia mi in, consectetur libero. Sed ac semper nisl. Nulla gravida turpis nec lacus euismod blandit. Sed est elit, posuere eu purus in, ornare placerat augue. Donec sem ipsum, laoreet eu malesuada ut, condimentum vel ex. Duis maximus nibh eget massa suscipit dictum. Fusce et arcu tempus, bibendum sapien in, dignissim orci. Vestibulum ac justo a lacus varius porta. Nam quis metus non turpis egestas tristique. Morbi accumsan sapien vel nisi luctus dictum. Nulla vitae sollicitudin mauris. Etiam gravida ornare hendrerit.</p>\r\n\r\n<p>Proin placerat vehicula vestibulum. Nam bibendum molestie lectus, at ultricies augue dictum a. Nam porta massa vel imperdiet eleifend. Praesent efficitur imperdiet tellus, tincidunt faucibus quam eleifend at. Ut quis ipsum nec massa vestibulum aliquam vitae quis arcu. Praesent ornare, neque a efficitur venenatis, elit libero pellentesque odio, nec molestie nunc turpis interdum mi. Pellentesque non pharetra quam. Quisque interdum feugiat consectetur. In iaculis placerat arcu, et efficitur diam suscipit at. Nunc mattis imperdiet tincidunt. Fusce eu turpis arcu. Ut risus eros, pulvinar in dui nec, mollis sodales dolor.</p>",
-            "image": "projects/murder-drones-doll-popcorn-480p.gif",
-            "url": "",
-            "git": "",
-            "featured": true,
-            "published": true,
-            "date_created": "2023-11-29T17:36:01.716Z",
-            "date_updated": "2023-12-25T07:50:27.730Z",
-            "tags": [
-                1
-            ]
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 1,
-        "fields": {
-            "action_time": "2023-12-25T07:37:24.241Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "test-project",
-            "object_repr": "Test Project",
-            "action_flag": 2,
-            "change_message": "[]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 2,
-        "fields": {
-            "action_time": "2023-12-25T07:50:27.734Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "test-project",
-            "object_repr": "Test Project",
-            "action_flag": 2,
-            "change_message": "[]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 3,
-        "fields": {
-            "action_time": "2023-12-26T15:30:00.729Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "tag"
-            ],
-            "object_id": "2",
-            "object_repr": "Android",
-            "action_flag": 1,
-            "change_message": "[{\"added\": {}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 4,
-        "fields": {
-            "action_time": "2023-12-26T15:30:57.322Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "tag"
-            ],
-            "object_id": "3",
-            "object_repr": "Web",
-            "action_flag": 1,
-            "change_message": "[{\"added\": {}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 5,
-        "fields": {
-            "action_time": "2023-12-26T15:31:03.266Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 1,
-            "change_message": "[{\"added\": {}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 6,
-        "fields": {
-            "action_time": "2023-12-26T16:24:05.717Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 7,
-        "fields": {
-            "action_time": "2023-12-26T16:24:10.915Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Featured\"]}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 8,
-        "fields": {
-            "action_time": "2023-12-29T17:13:48.936Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 9,
-        "fields": {
-            "action_time": "2023-12-29T17:27:56.730Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 10,
-        "fields": {
-            "action_time": "2023-12-29T20:00:22.353Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 11,
-        "fields": {
-            "action_time": "2023-12-29T20:01:37.171Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
-        }
-    },
-    {
-        "model": "admin.logentry",
-        "pk": 12,
-        "fields": {
-            "action_time": "2023-12-30T23:17:42.131Z",
-            "user": [
-                "admin"
-            ],
-            "content_type": [
-                "projects",
-                "project"
-            ],
-            "object_id": "posbary",
-            "object_repr": "Posbary",
-            "action_flag": 2,
-            "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
-        }
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
+        "last_login": "2024-01-02T03:34:23.122Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-11-24T16:01:57.813Z",
+        "groups": [],
+        "user_permissions": []
     }
-]    
+},
+{
+    "model": "pages.page",
+    "pk": "about",
+    "fields": {
+        "title": "About",
+        "content": "<p>Welcome to the about page</p>",
+        "date_created": "2023-11-25T21:39:38.618Z",
+        "date_updated": "2023-11-25T21:39:38.618Z"
+    }
+},
+{
+    "model": "pages.page",
+    "pk": "home",
+    "fields": {
+        "title": "Home",
+        "content": "<p>Welcome to the home page</p>",
+        "date_created": "2023-11-25T21:39:21.794Z",
+        "date_updated": "2023-11-25T21:39:21.794Z"
+    }
+},
+{
+    "model": "projects.tag",
+    "pk": 1,
+    "fields": {
+        "name": "Test Tag",
+        "description": "Test description",
+        "color": "#FF0000"
+    }
+},
+{
+    "model": "projects.tag",
+    "pk": 2,
+    "fields": {
+        "name": "Android",
+        "description": "Android related content",
+        "color": "#3DDC84"
+    }
+},
+{
+    "model": "projects.tag",
+    "pk": 3,
+    "fields": {
+        "name": "Web",
+        "description": "Web related content",
+        "color": "#00B8FF"
+    }
+},
+{
+    "model": "projects.project",
+    "pk": "posbary",
+    "fields": {
+        "title": "Posbary",
+        "description": "Making a small Website and an Android app for finding the nearest point to a list of points.",
+        "content": "<p>The idea was simple : finding the best point in a map for n peoples to meet, called the barycenter there.<br />\r\nI first made the mean of the sum of latitudes and longitudes, but that was obviously not the good solution (the distance between 2 longitudes depends on the latitude,...). So later I used the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Great-circle_distance\" rel=\"noopener\" target=\"_blank\" title=\"Great Circle distance wikipedia page\">Great Circle distance</a>&nbsp;(I could use the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Vincenty%27s_formulae\" rel=\"noopener\" target=\"_blank\" title=\"Vincenty's formula wikipedia page\">Vincenty&#39;s formula</a>&nbsp;but that&#39;s a little bit overkill).<br />\r\nThe mean of the sum of latitudes and longitudes that was enough to use as test for the distance in a small app, so I discovered the google map api platform and usage of the Maps in Android.<br />\r\n<br />\r\n<img alt=\"\" src=\"/media/uploads/2023/12/26/posbary_android.png\" /></p>\r\n\r\n<p>I developped a technique that throw a lot of points in the map, check the best found and then throw a list of point in a smaller area around it (kinda like a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Genetic_algorithm\" title=\"Genetic algorithm wikipedia page\">genetic algorithm</a>, but only the best of each generation is kept (if the &quot;cost&quot; have only one local minimum and is continuous that&#39;s not a problem) and the mutations reduce over time).</p>\r\n\r\n<p>That find the point with the smallest value for the equation of the distance to all the input points.</p>\r\n\r\n<p>Another goal was added, the point should be in the lands.</p>\r\n\r\n<p>I had some difficulties to make a 3 color gradient, having fun results.</p>\r\n\r\n<p><img alt=\"\" src=\"/media/uploads/2023/12/26/posbary_costs_bugs.webp\" /></p>\r\n\r\n<p>But I finally made the program working and made with a little editing to add the map this graphic :</p>\r\n\r\n<p><img alt=\"\" src=\"/media/uploads/2023/12/26/posbary_map_costs.webp\" /></p>\r\n\r\n<ul>\r\n\t<li>From blue to red the cost increasing</li>\r\n\t<li>In green to dark purple the points that search the barycenter in a smaller area at each operation</li>\r\n\t<li>In pink the points in lands searched in an area increasing from the barycenter previously found</li>\r\n</ul>\r\n\r\n<p>To target more devices I also decided to switch to a Website.</p>\r\n\r\n<p><img alt=\"\" src=\"https://www.4skl.com/media/projects/posbary_demo.webp\" /></p>\r\n\r\n<p>Now I work on theses things :</p>\r\n\r\n<ol>\r\n\t<li>Finding a way to reduce lands file size from this&nbsp;<a href=\"https://sedac.ciesin.columbia.edu/data/set/gpw-v4-land-water-area-rev11\" rel=\"noopener\" target=\"_blank\" title=\"Land water area dataset from earthdata\">land and water area dataset</a>&nbsp;(actually 4Mo file for ~5km precision is used)</li>\r\n\t<li>Finding the &quot;Travel Barycenter&quot;, the destination that make all people use the less time in car transport to meet, using distance matrix apis (Actually working, but improvements are needed to reduce and optimize api calls, and to show all the routes and the times on the map too)</li>\r\n\t<li>Prove and fine tuning the algorithm</li>\r\n\t<li>Use OpenLayers to avoid usage of proprietary google apis</li>\r\n\t<li>Make travels easily sharable and time aware</li>\r\n</ol>",
+        "image": "projects/posbary_demo.webp",
+        "url": "",
+        "git": "",
+        "featured": true,
+        "published": true,
+        "date_created": "2021-03-10T00:00:00Z",
+        "date_updated": "2024-01-02T03:36:29.902Z",
+        "tags": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": "test-project",
+    "fields": {
+        "title": "Test Project",
+        "description": "Test Project description",
+        "content": "<h1>Lorem Ipsum</h1>\r\n\r\n<h4>&quot;Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...&quot;</h4>\r\n\r\n<h5>&quot;Il ny a personne qui naime la souffrance pour elle-m&ecirc;me, qui ne la recherche et qui ne la veuille pour elle-m&ecirc;me...&quot;</h5>\r\n\r\n<hr />\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lorem lacus, euismod sed ultrices et, lobortis at lectus. Phasellus dolor ex, sollicitudin ut laoreet vitae, pharetra non turpis. Ut non diam lobortis, lacinia mi in, consectetur libero. Sed ac semper nisl. Nulla gravida turpis nec lacus euismod blandit. Sed est elit, posuere eu purus in, ornare placerat augue. Donec sem ipsum, laoreet eu malesuada ut, condimentum vel ex. Duis maximus nibh eget massa suscipit dictum. Fusce et arcu tempus, bibendum sapien in, dignissim orci. Vestibulum ac justo a lacus varius porta. Nam quis metus non turpis egestas tristique. Morbi accumsan sapien vel nisi luctus dictum. Nulla vitae sollicitudin mauris. Etiam gravida ornare hendrerit.</p>\r\n\r\n<p>Proin placerat vehicula vestibulum. Nam bibendum molestie lectus, at ultricies augue dictum a. Nam porta massa vel imperdiet eleifend. Praesent efficitur imperdiet tellus, tincidunt faucibus quam eleifend at. Ut quis ipsum nec massa vestibulum aliquam vitae quis arcu. Praesent ornare, neque a efficitur venenatis, elit libero pellentesque odio, nec molestie nunc turpis interdum mi. Pellentesque non pharetra quam. Quisque interdum feugiat consectetur. In iaculis placerat arcu, et efficitur diam suscipit at. Nunc mattis imperdiet tincidunt. Fusce eu turpis arcu. Ut risus eros, pulvinar in dui nec, mollis sodales dolor.</p>",
+        "image": "projects/murder-drones-doll-popcorn-480p.gif",
+        "url": "",
+        "git": "",
+        "featured": true,
+        "published": true,
+        "date_created": "2000-01-01T00:00:00Z",
+        "date_updated": "2024-01-02T03:37:08.071Z",
+        "tags": [
+            1
+        ]
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2023-12-25T07:37:24.241Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "test-project",
+        "object_repr": "Test Project",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2023-12-25T07:50:27.734Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "test-project",
+        "object_repr": "Test Project",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2023-12-26T15:30:00.729Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "2",
+        "object_repr": "Android",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2023-12-26T15:30:57.322Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "3",
+        "object_repr": "Web",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2023-12-26T15:31:03.266Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2023-12-26T16:24:05.717Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2023-12-26T16:24:10.915Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Featured\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2023-12-29T17:13:48.936Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2023-12-29T17:27:56.730Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2023-12-29T20:00:22.353Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2023-12-29T20:01:37.171Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2023-12-30T23:17:42.131Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2023-12-31T01:27:23.035Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "test-project",
+        "object_repr": "Test Project",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Featured\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-01-02T03:30:11.019Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Date created\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-01-02T03:32:22.368Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "test-project",
+        "object_repr": "Test Project",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Date created\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-01-02T03:36:29.910Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "posbary",
+        "object_repr": "Posbary",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Date created\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-01-02T03:37:08.078Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "test-project",
+        "object_repr": "Test Project",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Date created\"]}}]"
+    }
+}
+]

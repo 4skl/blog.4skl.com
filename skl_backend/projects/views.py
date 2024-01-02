@@ -36,15 +36,22 @@ class ProjectViewSet(viewsets.ModelViewSet):
     
     # Add a custom action to filter by tag
     @action(detail=False)
-    def tag(self):
-        tag = self.request.query_params.get('tag', None)
-        if tag is not None:
-            return self.queryset.filter(tags__name__in=[tag])
-        return self.queryset
+    def tag(self, request):
+        tag_names = request.query_params.get('tags', None)
+        tag_ids = request.query_params.get('tag_ids', None)
+        queryset = Project.objects.none()
+        if tag_names is not None:
+            tag_names = tag_names.split(',')  # Split the tag_names string into a list
+            queryset = self.queryset.filter(tags__name__in=tag_names)
+        elif tag_ids is not None:
+            tag_ids = [int(id) for id in tag_ids.split(',')]  # Split the tag_ids string into a list and convert to integers
+            queryset = self.queryset.filter(tags__id__in=tag_ids)
+        serializer = ProjectListSerializer(queryset, many=True)
+        return Response(serializer.data)
     
     # Add a custom action to return only featured projects
     @action(detail=False)
     def featured(self, request):
         queryset = self.queryset.filter(featured=True)
-        serializer = self.get_serializer(queryset, many=True)
+        serializer = ProjectListSerializer(queryset, many=True)
         return Response(serializer.data)

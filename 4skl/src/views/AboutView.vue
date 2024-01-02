@@ -7,6 +7,7 @@ const content = ref('');
 
 onMounted(async () => {
   try {
+    //load main page content
     const response = await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/page/about/?format=json`);
     title.value = response.data.title;
     content.value = response.data.content;
@@ -17,18 +18,11 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="about">
+  <div class="about page">
     <h1>{{ title }}</h1>
-    <div v-html="content"></div>
+    <div class="content" v-html="content"></div>
   </div>
 </template>
 
 <style>
-h1 {
-  text-align: center;
-}
-
-.about {
-  min-height: 100vh;
-}
 </style>

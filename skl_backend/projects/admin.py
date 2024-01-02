@@ -4,7 +4,7 @@ from .models import Tag, Project
 # Register your models here.
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('id',)  # Display only the ID of each tag
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):

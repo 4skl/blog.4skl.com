@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 from colorfield.fields import ColorField
@@ -28,12 +29,13 @@ class Project(models.Model):
     featured = models.BooleanField(default=False)
     published = models.BooleanField(default=False)
 
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField()
     date_updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.handle and self.title:
             self.handle = slugify(self.title)
+        
         super().save(*args, **kwargs)
 
     def __str__(self):
