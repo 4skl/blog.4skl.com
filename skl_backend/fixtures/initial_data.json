@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
-        "last_login": "2024-01-02T03:34:23.122Z",
+        "last_login": "2024-01-02T04:19:08.411Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -21,9 +21,9 @@
     "pk": "about",
     "fields": {
         "title": "About",
-        "content": "<p>Welcome to the about page</p>",
+        "content": "<p style=\"text-align: center;\">The about page, the more I think about it the more I think that the home page does the job &macr;\\_(ツ)_/&macr;.</p>\r\n\r\n<div id=\"gtx-trans\" style=\"position: absolute; left: -14px; top: 38.6px;\">\r\n<div class=\"gtx-trans-icon\">&nbsp;</div>\r\n</div>",
         "date_created": "2023-11-25T21:39:38.618Z",
-        "date_updated": "2023-11-25T21:39:38.618Z"
+        "date_updated": "2024-01-02T05:01:50.129Z"
     }
 },
 {
@@ -31,9 +31,9 @@
     "pk": "home",
     "fields": {
         "title": "Home",
-        "content": "<p>Welcome to the home page</p>",
+        "content": "<h3 style=\"text-align: center;\">Welcome to the home page of my tech blog !</h3>\r\n\r\n<p style=\"text-align: center;\"><br />\r\n<strong>I&#39;m a young french dev passionate about IT/CS (and sciences in general)</strong><br />\r\nI love discovering new things, problem solving, using my computer sciences skills but also by prototyping for testing my ideas.<br />\r\n<em>(AKA making POC)</em><br />\r\n<br />\r\nI enjoy also a lot helping people, so if you need some help, contact me, it&#39;s free !&nbsp;<br />\r\n(@4skl on Discord or <a href=\"https://twitter.com/MediOlivier\" target=\"_blank\">@MediOlivier on 𝕏</a>)<br />\r\n<br />\r\nYou can also checkout my <a href=\"https://github.com/4skl\" target=\"_blank\">GitHub</a>,<br />\r\n<a href=\"https://wakatime.com/@4skl\" target=\"_blank\"><img alt=\"WakaTime account @4skl, Médi Olivier\" src=\"https://wakatime.com/badge/user/96a554aa-d3ab-405d-a028-6b42d7f02cf9.svg?style=flat\" style=\"width: 143px; height: 20px;\" /></a></p>\r\n\r\n<p style=\"text-align: center;\">Have a beautiful day !</p>",
         "date_created": "2023-11-25T21:39:21.794Z",
-        "date_updated": "2023-11-25T21:39:21.794Z"
+        "date_updated": "2024-01-02T05:00:25.982Z"
     }
 },
 {
@@ -93,10 +93,10 @@
         "image": "projects/murder-drones-doll-popcorn-480p.gif",
         "url": "",
         "git": "",
-        "featured": true,
+        "featured": false,
         "published": true,
         "date_created": "2000-01-01T00:00:00Z",
-        "date_updated": "2024-01-02T03:37:08.071Z",
+        "date_updated": "2024-01-02T04:19:15.598Z",
         "tags": [
             1
         ]
@@ -406,6 +406,222 @@
         "object_repr": "Test Project",
         "action_flag": 2,
         "change_message": "[{\"changed\": {\"fields\": [\"Date created\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-01-02T04:19:15.608Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "test-project",
+        "object_repr": "Test Project",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Featured\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2024-01-02T04:45:23.706Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2024-01-02T04:49:32.726Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2024-01-02T04:50:51.605Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2024-01-02T04:51:51.773Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2024-01-02T04:54:32.751Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2024-01-02T04:57:02.425Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2024-01-02T04:57:26.756Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2024-01-02T04:57:47.340Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2024-01-02T04:59:29.533Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2024-01-02T05:00:25.988Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "home",
+        "object_repr": "Home",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2024-01-02T05:01:50.135Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "about",
+        "object_repr": "About",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
     }
 }
 ]
