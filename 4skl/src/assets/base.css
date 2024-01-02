@@ -84,16 +84,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.page {
-  min-height: 100vh;
-}
-
-.page > h1 {
-  text-align: center;
-}
-
-.page > .content {
-  margin: 0 auto;
-  max-width: 800px;
-}

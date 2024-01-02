@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <router-link :to="{ name: 'project', params: { handle: project.handle }}">
+  <router-link :to="{ name: 'project', params: { handle: project.handle }}" class="project-card-container">
     <div class="project-card">
           <img v-if="project.image" :src="project.image" :alt="project.title" />
           <img v-else src="@/assets/no-image.svg" :alt="project.title" />
@@ -39,6 +39,7 @@ defineProps<{
   height: 10em;
   overflow: hidden;
   width: 90vw;
+  max-width: 800px;
 }
 
 .project-card > img {

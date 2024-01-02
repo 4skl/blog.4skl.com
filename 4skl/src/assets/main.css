@@ -8,6 +8,35 @@
   font-weight: normal;
 }
 
+/* Base Page layout */
+.page {
+  min-height: 100vh;
+}
+
+.page > h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.page > .content {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+
+/* Base Project layout */
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-card-container {
+  margin-bottom: 1em;
+  max-width: 800px;
+}
+
+/* Global styles */
 a {
   text-decoration: none;
   color: rgb(0, 94, 189);
