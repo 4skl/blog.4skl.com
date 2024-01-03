@@ -43,31 +43,28 @@ defineProps<{
 }
 
 .project-card > img {
-  margin-right: 1.5em;
+  margin-right: 1em;
   width: 20%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: .5em;
+  align-self: stretch;
 }
 
 .project-info {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 2;
+  flex-grow: 1;
+  align-self: stretch;
 }
 
 .lower-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1em;
+  margin-top: auto;
 }
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: auto; /* Add this line */
-}
-
 </style>

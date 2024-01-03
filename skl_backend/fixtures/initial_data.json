@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
-        "last_login": "2024-01-02T04:19:08.411Z",
+        "last_login": "2024-01-02T10:14:35.421Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -21,9 +21,9 @@
     "pk": "about",
     "fields": {
         "title": "About",
-        "content": "<p style=\"text-align: center;\">The about page, the more I think about it the more I think that the home page does the job &macr;\\_(ツ)_/&macr;.</p>\r\n\r\n<div id=\"gtx-trans\" style=\"position: absolute; left: -14px; top: 38.6px;\">\r\n<div class=\"gtx-trans-icon\">&nbsp;</div>\r\n</div>",
+        "content": "<p style=\"text-align: center;\">The about page, the more I think about it the more I think that the home page does the job &macr;\\_(ツ)_/&macr;</p>",
         "date_created": "2023-11-25T21:39:38.618Z",
-        "date_updated": "2024-01-02T05:01:50.129Z"
+        "date_updated": "2024-01-02T10:16:07.426Z"
     }
 },
 {
@@ -622,6 +622,60 @@
         "object_repr": "About",
         "action_flag": 2,
         "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2024-01-02T07:58:24.024Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "about",
+        "object_repr": "About",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2024-01-02T10:14:59.504Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "about",
+        "object_repr": "About",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2024-01-02T10:16:07.433Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "pages",
+            "page"
+        ],
+        "object_id": "about",
+        "object_repr": "About",
+        "action_flag": 2,
+        "change_message": "[]"
     }
 }
 ]

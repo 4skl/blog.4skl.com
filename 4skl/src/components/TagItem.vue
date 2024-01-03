@@ -1,12 +1,23 @@
 <script setup lang="ts">
+import { withDefaults } from 'vue';
 import type { Tag } from '@/types';
-defineProps<{
+const props = withDefaults(defineProps<{
   tag: Tag;
-}>()
+  selected: boolean;
+}>(), {
+  selected: false
+});
+
+
+const emit = defineEmits(['toggle-tag']);
+
+const toggleTag = () => {
+  emit('toggle-tag', props.tag);
+};
 </script>
 
 <template>
-  <span class="tag" :title="tag.description" :style="{ borderColor: tag.color }">{{ tag.name }}</span>
+  <span class="tag" :class="{ 'selected': props.selected }" :title="tag.description" :style="{ borderColor: tag.color }" @click="toggleTag">{{ tag.name }}</span>
 </template>
 
 <style scoped>
@@ -19,5 +30,9 @@ defineProps<{
   font-weight: 500;
   margin-right: 0.5rem;
   width: fit-content;
+}
+
+.tag.selected {
+  background-color: var(--color-border);
 }
 </style>

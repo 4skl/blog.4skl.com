@@ -36,6 +36,23 @@
   max-width: 800px;
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  background-color: var(--color-background);
+  font-size: 16px;
+  color: var(--text-color);
+}
+
 /* Global styles */
 a {
   text-decoration: none;

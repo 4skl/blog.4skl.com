@@ -17,7 +17,7 @@ class Tag(models.Model):
         verbose_name_plural = 'Tags'
 
 class Project(models.Model):
-    handle = models.SlugField(max_length=100, primary_key=True, blank=True)
+    handle = models.SlugField(max_length=100, primary_key=True, blank=True, editable=False)
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     content = RichTextUploadingField(blank=True)
@@ -33,9 +33,7 @@ class Project(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        if not self.handle and self.title:
-            self.handle = slugify(self.title)
-        
+        self.handle = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):

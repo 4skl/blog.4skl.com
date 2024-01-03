@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import axios from 'axios';
 import { ref, onMounted, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
-import type { Project, ProjectNumberTags, Tag } from '@/types';
+import type { Project } from '@/types';
 import TagItem from '@/components/TagItem.vue';
 import { formatDate } from '@/utils/helpers';
-import { projectsNumberTagsToProjects } from '@/utils/projects';
+import { useProjectsStore } from '@/stores/projects';
 import hljs from 'highlight.js';
 
-const project = ref();
-const route = useRoute();
+const project = ref<Project>();
 
 onMounted(async () => {
-  const project_build: ProjectNumberTags = (await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/projects/${route.params.handle}/?format=json`)).data as ProjectNumberTags;
-  
-  project.value = (await (projectsNumberTagsToProjects([project_build]) as Promise<Project[]>))[0]; // typescript is for masochists or psychorigid people xD (or both) jk
-  
+  const route = useRoute();
+  const handle = route.params.handle as string;
+  const projectsStore = useProjectsStore();
+  await projectsStore.loadProjectContent(handle);
+  project.value = projectsStore.getProjectByHandle(handle);
+
   // Highlight code blocks
   nextTick(async () => {
     // Check if dark mode is enabled
@@ -36,7 +36,7 @@ onMounted(async () => {
   // CKEditor img styling
   // Parse the HTML string into a Document object
   const parser = new DOMParser();
-  const doc = parser.parseFromString(project.value.content, 'text/html');
+  const doc = parser.parseFromString(project.value.content as string, 'text/html');
 
   // Select all images and apply styles only if they don't have inline styles
   doc.querySelectorAll('img').forEach((img) => {

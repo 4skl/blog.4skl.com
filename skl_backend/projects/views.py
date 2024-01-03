@@ -33,7 +33,8 @@ class ProjectViewSet(viewsets.ModelViewSet):
         if self.action == 'list':
             return ProjectListSerializer
         return ProjectSerializer
-    
+"""
+#* Removed cause done in the frontend now
     # Add a custom action to filter by tag
     @action(detail=False)
     def tag(self, request):
@@ -55,3 +56,4 @@ class ProjectViewSet(viewsets.ModelViewSet):
         queryset = self.queryset.filter(featured=True)
         serializer = ProjectListSerializer(queryset, many=True)
         return Response(serializer.data)
+"""

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import type { Project, ProjectNumberTags} from '@/types';
-import { projectsNumberTagsToProjects } from '@/utils/projects';
+import type { Project } from '@/types';
+import { useProjectsStore } from '@/stores/projects';
 import ProjectCard from '@/components/ProjectCard.vue';
 
 const title = ref('');
@@ -17,9 +17,9 @@ onMounted(async () => {
     content.value = response.data.content;
 
     //load featured projects
-    const projects_build: ProjectNumberTags[] = (await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/projects/featured/?format=json`)).data as ProjectNumberTags[];;
-    // Then get the tags data for each project efficiently (reducing the number of requests and theirs size)
-    projects.value = await (projectsNumberTagsToProjects(projects_build) as Promise<Project[]>);
+    const projectStore = useProjectsStore();
+    await projectStore.loadProjects();
+    projects.value = projectStore.projects_featured;
   } catch (error) {
     console.error(error);
   }
