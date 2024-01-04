@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
-        "last_login": "2024-01-02T10:14:35.421Z",
+        "last_login": "2024-01-04T09:09:04.908Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -64,6 +64,42 @@
     }
 },
 {
+    "model": "projects.tag",
+    "pk": 4,
+    "fields": {
+        "name": "DevOps",
+        "description": "Trying to create this project in a DevOps philosophy",
+        "color": "#427FA4"
+    }
+},
+{
+    "model": "projects.tag",
+    "pk": 5,
+    "fields": {
+        "name": "Vue",
+        "description": "Project using the Vue framework",
+        "color": "#37AF79"
+    }
+},
+{
+    "model": "projects.tag",
+    "pk": 6,
+    "fields": {
+        "name": "Django",
+        "description": "Project using as backend the Django framework",
+        "color": "#0C4B33"
+    }
+},
+{
+    "model": "projects.tag",
+    "pk": 7,
+    "fields": {
+        "name": "REST",
+        "description": "This has a REST API, most of the times using Django REST framework",
+        "color": "#A30000"
+    }
+},
+{
     "model": "projects.project",
     "pk": "posbary",
     "fields": {
@@ -99,6 +135,29 @@
         "date_updated": "2024-01-02T04:19:15.598Z",
         "tags": [
             1
+        ]
+    }
+},
+{
+    "model": "projects.project",
+    "pk": "this-website",
+    "fields": {
+        "title": "This Website",
+        "description": "This own website is public on GitHub and I explain why and how it's still secure while having all the files including the database public.",
+        "content": "<p>I wanted to learn VueJS, Docker and Django REST framework and take a step into CI/CD and DevSecOps so I re-created my old website using a VueJS frontend, created a Docker compose for production and a Dev Container for the development.</p>\r\n\r\n<p>Here is a preview of my old website 4skl.com made using Django and HTML templates, pure JS and CSS for everything.</p>\r\n\r\n<p>&nbsp;</p>",
+        "image": "",
+        "url": "https://www.4skl.com",
+        "git": "https://github.com/4skl/4skl.com",
+        "featured": true,
+        "published": true,
+        "date_created": "2024-01-04T09:30:31Z",
+        "date_updated": "2024-01-04T09:34:06.313Z",
+        "tags": [
+            3,
+            4,
+            5,
+            6,
+            7
         ]
     }
 },
@@ -676,6 +735,150 @@
         "object_repr": "About",
         "action_flag": 2,
         "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2024-01-04T08:20:26.510Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "4",
+        "object_repr": "DevOps",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2024-01-04T08:24:01.926Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "4",
+        "object_repr": "DevOps",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2024-01-04T08:29:45.278Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "5",
+        "object_repr": "Vue",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2024-01-04T08:34:09.723Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "5",
+        "object_repr": "Vue",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Color\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2024-01-04T08:36:57.157Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "6",
+        "object_repr": "Django",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2024-01-04T09:08:39.217Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "5",
+        "object_repr": "Vue",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2024-01-04T09:17:12.192Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "tag"
+        ],
+        "object_id": "7",
+        "object_repr": "REST",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2024-01-04T09:34:06.327Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "this-website",
+        "object_repr": "This Website",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 }
 ]

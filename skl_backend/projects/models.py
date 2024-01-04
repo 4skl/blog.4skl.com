@@ -21,7 +21,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     content = RichTextUploadingField(blank=True)
-    image = models.ImageField(upload_to='projects/', blank=True)
+    image = models.FileField(upload_to='projects/', blank=True)
     url = models.URLField(blank=True)
     git = models.URLField(blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
