@@ -142,7 +142,7 @@ STATIC_ROOT = '/var/www/4skl/static/'
 # Media files (Images, Videos, etc.)
 # https://docs.djangoproject.com/en/4.0/topics/files/
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/usr/src/app/media'
+MEDIA_ROOT = '/usr/src/4skl.com/media'
 
 # Django REST Framework
 # https://www.django-rest-framework.org/

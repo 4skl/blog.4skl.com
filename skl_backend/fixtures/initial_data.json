@@ -3,7 +3,7 @@
     "model": "auth.user",
     "fields": {
         "password": "pbkdf2_sha256$600000$3sPo84kCfVGPPgLpjn6dfy$IXvloRMwMA6Xvn08jgOFWRV7yXjL4QX04fhD5sqBplE=",
-        "last_login": "2024-01-04T09:09:04.908Z",
+        "last_login": "2024-01-04T10:16:50.659Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -144,14 +144,14 @@
     "fields": {
         "title": "This Website",
         "description": "This own website is public on GitHub and I explain why and how it's still secure while having all the files including the database public.",
-        "content": "<p>I wanted to learn VueJS, Docker and Django REST framework and take a step into CI/CD and DevSecOps so I re-created my old website using a VueJS frontend, created a Docker compose for production and a Dev Container for the development.</p>\r\n\r\n<p>Here is a preview of my old website 4skl.com made using Django and HTML templates, pure JS and CSS for everything.</p>\r\n\r\n<p>&nbsp;</p>",
+        "content": "<p>I wanted to learn VueJS, Docker and Django REST framework and take a step into CI/CD and DevSecOps so I re-created my old website using a VueJS frontend, created a Docker compose for production and a Dev Container for the development.</p>\r\n\r\n<p>Here is a preview of my old website 4skl.com made using Django and HTML templates, pure JS and CSS for everything in 2021.</p>\r\n\r\n<p><img alt=\"4skl.com old 2021 website\" src=\"/media/uploads/2024/01/04/4sklcom_old.png\" /></p>",
         "image": "",
         "url": "https://www.4skl.com",
         "git": "https://github.com/4skl/4skl.com",
         "featured": true,
         "published": true,
         "date_created": "2024-01-04T09:30:31Z",
-        "date_updated": "2024-01-04T09:34:06.313Z",
+        "date_updated": "2024-01-04T10:17:47.798Z",
         "tags": [
             3,
             4,
@@ -879,6 +879,42 @@
         "object_repr": "This Website",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2024-01-04T09:56:44.437Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "this-website",
+        "object_repr": "This Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2024-01-04T10:17:47.805Z",
+        "user": [
+            "admin"
+        ],
+        "content_type": [
+            "projects",
+            "project"
+        ],
+        "object_id": "this-website",
+        "object_repr": "This Website",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
     }
 }
 ]
