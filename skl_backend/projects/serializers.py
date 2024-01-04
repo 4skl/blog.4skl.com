@@ -13,6 +13,8 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = ['handle', 'title', 'description', 'content', 'image', 'url', 'git', 'tags', 'featured', 'date_created', 'date_updated']
 
 class ProjectListSerializer(serializers.ModelSerializer):
+    link = serializers.HyperlinkedIdentityField(view_name='project-detail')
+
     class Meta:
         model = Project
-        fields = ['handle', 'title', 'description', 'image', 'url', 'git', 'tags', 'featured', 'date_created', 'date_updated']
+        fields = ['link', 'handle', 'title', 'description', 'image', 'url', 'git', 'tags', 'featured', 'date_created', 'date_updated']
