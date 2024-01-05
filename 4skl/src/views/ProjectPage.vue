@@ -65,7 +65,7 @@ onMounted(async () => {
         <div><span class="date-created">{{ formatDate(project.date_created) }}</span> - <span class="date-updated">{{ formatDate(project.date_updated) }}</span></div>
       </div>
       <img class="project-image" v-if="project.image" :src="project.image" :alt="project.title" loading="lazy"/>
-      <!-- Todo featured, ? date created, date updated, url, git ? -->
+      <!-- Todo featured, ? date created, date updated, url, git -->
       <div class="project-content" v-html="project.content"></div>
       </div>
     </div>

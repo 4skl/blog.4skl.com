@@ -5,7 +5,7 @@ FROM node:14-alpine
 ENV NODE_ENV development
 
 # Set work directory
-WORKDIR /usr/src/4skl.com/4skl
+WORKDIR /usr/src/blog.4skl.com/4skl
 
 # Install Node.js dependencies
 COPY ../4skl/package*.json ./

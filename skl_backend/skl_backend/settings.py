@@ -29,13 +29,12 @@ USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['localhost', '4skl.com', 'www.4skl.com']
+ALLOWED_HOSTS = ['blog.4skl.com']
 
-CSRF_TRUSTED_ORIGINS = ["https://4skl.com", "https://www.4skl.com"]
+CSRF_TRUSTED_ORIGINS = ["https://blog.4skl.com"]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://4skl.com",
-    "https://www.4skl.com",
+    "https://blog.4skl.com",
 ]
 
 
@@ -137,12 +136,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = '/var/www/4skl.com/static/'
+STATIC_ROOT = '/var/www/blog.4skl.com/static/'
 
 # Media files (Images, Videos, etc.)
 # https://docs.djangoproject.com/en/4.0/topics/files/
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/var/www/4skl.com/media/'
+MEDIA_ROOT = '/var/www/blog.4skl.com/media/'
 
 # Django REST Framework
 # https://www.django-rest-framework.org/

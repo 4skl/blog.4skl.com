@@ -21,3 +21,5 @@ Keep url field in project list serializer ?
 - [ ] Add a sitemap.xml (Improve SEO score)
 - [x] Move nginx certificate out of the container (to avoid recreating each time the container is recreated) + move nginx server port to another port to avoid conflicts with the outside nginx (and so the outside nginx can proxy_pass to the inside nginx); but still an open question, it seems better to just avoid making dev updates on prod too frequently... => Add a script for certbot creation and volume for certbot data (to avoid recreating each time the container is recreated)
 - [ ] Move path in dockerfile prod to direct call after being on the right folder, they are already, it's just too verbose
+- [ ] SEO : Search console
+- [ ] move to blog.4skl.com

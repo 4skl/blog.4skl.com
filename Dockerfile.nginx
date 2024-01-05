@@ -7,7 +7,7 @@ RUN npm run build --base=/
 
 # Production stage
 FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /var/www/4skl.com/dist
+COPY --from=build-stage /app/dist /var/www/blog.4skl.com/dist
 
 # Set up Nginx to serve the site and Certbot to renew the certificate
 # Remove the default Nginx configuration file
@@ -22,6 +22,7 @@ EXPOSE 443
 
 # Set up environment variables
 ENV CERTBOT_EMAIL "medi.olivier@hotmail.fr"
+ENV CERTBOT_DOMAIN "blog.4skl.com"
 
 # Set up Supervisor to run multiple processes (Nginx and Certbot renew)
 RUN apk add -U supervisor

@@ -42,10 +42,10 @@ python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e
 docker exec -it 4sklcom-django-1 python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission -e sessions.session --indent 4 > ./skl_backend/fixtures/initial_data.json
 
 # Get fixtures from prod
-scp :~/4skl.com/skl_backend/fixtures/initial_data.json ./skl_backend/fixtures/initial_data.json
+scp :~/blog.4skl.com/skl_backend/fixtures/initial_data.json ./skl_backend/fixtures/initial_data.json
 
 # Copy media from prod to dev; replace the local media folder with the one from prod
-scp -r :~/4skl.com/media ./
+scp -r :~/blog.4skl.com/media ./
 
 # Reset git to HEAD (remove all changes), used to reset prod after changing media files and copying them to dev with scp for example (note: use django admin, or command to get the fixture accordingly)
 git reset --hard HEAD

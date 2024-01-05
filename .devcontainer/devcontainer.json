@@ -1,8 +1,8 @@
 {
-	"name": "4skl.com Dev Container",
+	"name": "blog.4skl.com Dev Container",
 	"dockerComposeFile": ["docker-compose.yml"],
 	"service": "dev",
-	"workspaceFolder": "/usr/src/4skl.com",
+	"workspaceFolder": "/usr/src/blog.4skl.com",
 	"forwardPorts": [
         //8000, // Django
         //3000,  // Vue.js/Vite

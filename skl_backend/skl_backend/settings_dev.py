@@ -31,13 +31,7 @@ ALLOWED_HOSTS = ['localhost']
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost"] #? remove localhost when deploying ? or modify reverse proxy ? => learn more abt CORS and CSRF
 
-CORS_ALLOW_ALL_ORIGINS = True # dev
-
-'''prod
-CORS_ALLOWED_ORIGINS = [
-    "https://4skl.com",
-]
-'''
+CORS_ALLOW_ALL_ORIGINS = True # dev only
 
 
 # Application definition
@@ -142,7 +136,7 @@ STATIC_ROOT = '/var/www/4skl/static/'
 # Media files (Images, Videos, etc.)
 # https://docs.djangoproject.com/en/4.0/topics/files/
 MEDIA_URL = 'media/'
-MEDIA_ROOT = '/usr/src/4skl.com/media'
+MEDIA_ROOT = '/usr/src/blog.4skl.com/media'
 
 # Django REST Framework
 # https://www.django-rest-framework.org/

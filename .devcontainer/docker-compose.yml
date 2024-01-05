@@ -5,32 +5,32 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile.django
     volumes:
-      - ../skl_backend:/usr/src/4skl.com/skl_backend
-      - ../media:/usr/src/4skl.com/media
+      - ../skl_backend:/usr/src/blog.4skl.com/skl_backend
+      - ../media:/usr/src/blog.4skl.com/media
   
   vue:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile.vue
     volumes:
-      - ../4skl/src:/usr/src/4skl.com/4skl/src
-      - ../4skl/public:/usr/src/4skl.com/4skl/public
-      - ../4skl/vite.config.ts:/usr/src/4skl.com/4skl/vite.config.ts
-      - ../4skl/tsconfig.json:/usr/src/4skl.com/4skl/tsconfig.json
-      - ../4skl/tsconfig.app.json:/usr/src/4skl.com/4skl/tsconfig.app.json
-      - ../4skl/tsconfig.node.json:/usr/src/4skl.com/4skl/tsconfig.node.json
-      - ../4skl/.env.development:/usr/src/4skl.com/4skl/.env.development
-      - ../4skl/env.d.ts:/usr/src/4skl.com/4skl/env.d.ts
-      - ../4skl/index.html:/usr/src/4skl.com/4skl/index.html
+      - ../4skl/src:/usr/src/blog.4skl.com/4skl/src
+      - ../4skl/public:/usr/src/blog.4skl.com/4skl/public
+      - ../4skl/vite.config.ts:/usr/src/blog.4skl.com/4skl/vite.config.ts
+      - ../4skl/tsconfig.json:/usr/src/blog.4skl.com/4skl/tsconfig.json
+      - ../4skl/tsconfig.app.json:/usr/src/blog.4skl.com/4skl/tsconfig.app.json
+      - ../4skl/tsconfig.node.json:/usr/src/blog.4skl.com/4skl/tsconfig.node.json
+      - ../4skl/.env.development:/usr/src/blog.4skl.com/4skl/.env.development
+      - ../4skl/env.d.ts:/usr/src/blog.4skl.com/4skl/env.d.ts
+      - ../4skl/index.html:/usr/src/blog.4skl.com/4skl/index.html
   
   dev:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile.nginx
     volumes:
-      - ../skl_backend:/usr/src/4skl.com/skl_backend
-      - ../4skl:/usr/src/4skl.com/4skl
-      - ../media:/usr/src/4skl.com/media
+      - ../skl_backend:/usr/src/blog.4skl.com/skl_backend
+      - ../4skl:/usr/src/blog.4skl.com/4skl
+      - ../media:/usr/src/blog.4skl.com/media
     ports:
       - 80:80
     depends_on:

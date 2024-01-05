@@ -5,9 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile.django
     volumes:
-      - ./skl_backend:/usr/src/4skl.com/skl_backend
-      - ./media:/var/www/4skl.com/media
-      - static_volume:/var/www/4skl.com/static
+      - ./skl_backend:/usr/src/blog.4skl.com/skl_backend
+      - ./media:/var/www/blog.4skl.com/media
+      - static_volume:/var/www/blog.4skl.com/static
     logging:
         options:
           max-size: '100m'
@@ -20,8 +20,8 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
     volumes:
-      - ./media:/var/www/4skl.com/media
-      - static_volume:/var/www/4skl.com/static
+      - ./media:/var/www/blog.4skl.com/media
+      - static_volume:/var/www/blog.4skl.com/static
       - certbot_data:/etc/letsencrypt
     ports:
       - 80:80

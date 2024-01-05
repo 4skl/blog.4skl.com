@@ -3,7 +3,7 @@ import { withDefaults } from 'vue';
 import type { Tag } from '@/types';
 const props = withDefaults(defineProps<{
   tag: Tag;
-  selected: boolean;
+  selected?: boolean;
 }>(), {
   selected: false
 });
