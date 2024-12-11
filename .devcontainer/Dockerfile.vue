@@ -2,7 +2,7 @@
 FROM node:14-alpine
 
 # Set environment variables
-ENV NODE_ENV development
+ENV NODE_ENV=development
 
 # Set work directory
 WORKDIR /usr/src/blog.4skl.com/4skl

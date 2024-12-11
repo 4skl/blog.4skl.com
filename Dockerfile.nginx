@@ -21,8 +21,8 @@ EXPOSE 80
 EXPOSE 443
 
 # Set up environment variables
-ENV CERTBOT_EMAIL "medi.olivier@hotmail.fr"
-ENV CERTBOT_DOMAIN "blog.4skl.com"
+ENV CERTBOT_EMAIL="medi.olivier@hotmail.fr"
+ENV CERTBOT_DOMAIN="blog.4skl.com"
 
 # Set up Supervisor to run multiple processes (Nginx and Certbot renew)
 RUN apk add -U supervisor
